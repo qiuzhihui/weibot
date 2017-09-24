@@ -2,7 +2,7 @@
 """
     Website project for www.FoodChasing.com
 
-    :copyright: (c) 2016 by Zach Qiu/ Keran Chen.
+    :copyright: (c) 2017 by Zach Qiu/ Keran Chen.
     :license: BSD, see LICENSE for more details.
 """
 
