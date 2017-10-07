@@ -20,3 +20,11 @@ export const toggleTodo = id => {
     id
   }
 }
+
+export const setOffset = (index, direction) => {
+  return {
+    type: 'SET_OFFSET',
+    index,
+    direction
+  }
+}
