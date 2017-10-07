@@ -1,10 +1,13 @@
-const offset = (state = (1, 'next'), action) => {
-  switch (action.type) {
-    case 'SET_OFFSET':
-      return (action.index, action.direction)
-    default:
-      return state
-  }
+const offset = (state = {index: 0, direction: 'next'}, action) => {
+    switch (action.type) {
+        case 'SET_OFFSET':
+            return {
+                index: action.index,
+                direction: action.direction
+            }
+        default:
+        return state
+    }
 }
 
 export default offset

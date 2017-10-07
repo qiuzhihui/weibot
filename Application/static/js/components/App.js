@@ -9,7 +9,6 @@ import Carousel from '../containers/Carousel'
 const App = () => (
   <div>
     <Header />
-    <ControlledCarousel />
     <Carousel />
     <AddTodo />
     <VisibleTodoList />

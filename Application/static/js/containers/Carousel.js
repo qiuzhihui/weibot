@@ -4,23 +4,24 @@ import TestCarousel from '../components/TestCarousel'
 
 
 const mapStateToProps = state => {
-  return {
-    offset: state.offset
-  }
+    console.log(state)
+    return {
+        offset: state.offset
+    }
 }
 
 
-const mapDispatchToProps = (dispatch, selectedIndex, e) => {
-  return {
-    handleSelect: () => {
-      dispatch(setOffset(selectedIndex, e.direction))
+const mapDispatchToProps = dispatch => {
+    return {
+        handleSelect: (selectedIndex, e) => {
+            dispatch(setOffset(selectedIndex, e.direction))
+        }
     }
-  }
 }
 
 const Carousel = connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(TestCarousel)
 
 export default Carousel
