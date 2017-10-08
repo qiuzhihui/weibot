@@ -11,7 +11,7 @@ const MainPage = () => (
 
     <Carousel />
 
-    <Grid style={{backgroundColor:"gray"}}>
+    <Grid style={{backgroundColor:"black"}}>
       <Row className="show-grid" style={{height:"200px", padding: "10px"}}>
         <Col xs={12} md={4}>
           <img src="/static/img/brands/Audi.png" height="100%" style={{display:"block", margin:"0 auto"}}></img>
