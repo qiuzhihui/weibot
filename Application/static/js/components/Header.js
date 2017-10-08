@@ -1,29 +1,37 @@
 import React from 'react'
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
+
+/**
+<NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+  <MenuItem eventKey={3.1}>Action</MenuItem>
+  <MenuItem eventKey={3.2}>Another action</MenuItem>
+  <MenuItem eventKey={3.3}>Something else here</MenuItem>
+  <MenuItem divider />
+  <MenuItem eventKey={3.3}>Separated link</MenuItem>
+</NavDropdown>
+*/
+
 const Header = () => (
   <Navbar inverse collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
-        <a href="#">uBoston</a>
+        <div style={{'fontSize': 22, 'font':'roboto', 'color':'white'}}>
+          <a href="#" style={{'color':'white', 'textDecoration':'none'}}>Uboston Auto School</a>
+        </div>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <NavItem eventKey={1} href="#">Link</NavItem>
-        <NavItem eventKey={2} href="#">Link</NavItem>
-        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-          <MenuItem eventKey={3.1}>Action</MenuItem>
-          <MenuItem eventKey={3.2}>Another action</MenuItem>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
-          <MenuItem divider />
-          <MenuItem eventKey={3.3}>Separated link</MenuItem>
-        </NavDropdown>
+        <NavItem eventKey={1} href="#">Repair</NavItem>
+        <NavItem eventKey={2} href="#">Used Car</NavItem>
+        <NavItem eventKey={2} href="#">Rental</NavItem>
+        <NavItem eventKey={2} href="#">Education</NavItem>
       </Nav>
       <Nav pullRight>
-        <NavItem eventKey={1} href="#">Link Right</NavItem>
-        <NavItem eventKey={2} href="#">Link Right</NavItem>
+        <NavItem eventKey={1} href="#">Contact</NavItem>
+        <NavItem eventKey={2} href="#">三友车行</NavItem>
       </Nav>
     </Navbar.Collapse>
   </Navbar>

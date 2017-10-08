@@ -1,12 +1,17 @@
 import React from 'react'
 import ControlledCarousel from './ControlledCarousel'
 import Carousel from '../containers/Carousel'
+import Video from './Video'
 
 import {Grid, Row, Col} from 'react-bootstrap';
 
 const MainPage = () => (
   <div>
-    <Grid style={{backgroundColor:"gray", width: "100%"}}>
+    <Video />
+
+    <Carousel />
+
+    <Grid style={{backgroundColor:"black", width: "100%"}}>
       <Row className="show-grid" style={{height:"200px", padding: "10px"}}>
         <Col xs={12} md={4}>
           <img src="/static/img/brands/Audi.png" height="100%" style={{display:"block", margin:"0 auto"}}></img>
