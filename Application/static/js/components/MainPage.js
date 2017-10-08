@@ -6,7 +6,6 @@ import {Grid, Row, Col} from 'react-bootstrap';
 
 const MainPage = () => (
   <div>
-    <ControlledCarousel />
     <Grid style={{backgroundColor:"gray"}}>
       <Row className="show-grid" style={{height:"200px", padding: "10px"}}>
         <Col xs={12} md={4}>
