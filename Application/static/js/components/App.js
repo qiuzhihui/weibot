@@ -5,11 +5,13 @@ import VisibleTodoList from '../containers/VisibleTodoList'
 import Header from './Header'
 import ControlledCarousel from './ControlledCarousel'
 import Carousel from '../containers/Carousel'
+import MainPage from './MainPage'
 
 const App = () => (
   <div>
     <Header />
-    <Carousel />
+    <MainPage />
+
     <AddTodo />
     <VisibleTodoList />
     <Footer />

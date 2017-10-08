@@ -11,7 +11,7 @@ const ControlledCarousel = React.createClass({
   },
 
   handleSelect(selectedIndex, e) {
-    alert('selected=' + selectedIndex + ', direction=' + e.direction);
+    //alert('selected=' + selectedIndex + ', direction=' + e.direction);
     this.setState({
       index: selectedIndex,
       direction: e.direction
