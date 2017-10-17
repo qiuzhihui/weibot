@@ -1,5 +1,5 @@
 import React from 'react'
-import Footer from './Footer'
+import AppFooter from './Footer'
 import AddTodo from '../containers/AddTodo'
 import VisibleTodoList from '../containers/VisibleTodoList'
 import Header from './Header'
@@ -10,6 +10,7 @@ const App = () => (
   <div style={{'backgroundColor':'black'}}>
     <Header />
     <MainPage />
+    <AppFooter />
   </div>
 )
 

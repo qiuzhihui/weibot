@@ -1,22 +1,26 @@
 import React from 'react'
-import FilterLink from '../containers/FilterLink'
+import {Footer} from 'react-materialize'
 
-const Footer = () => (
-  <p>
-    Show:
-    {' '}
-    <FilterLink filter="SHOW_ALL">
-      All
-    </FilterLink>
-    {', '}
-    <FilterLink filter="SHOW_ACTIVE">
-      Active
-    </FilterLink>
-    {', '}
-    <FilterLink filter="SHOW_COMPLETED">
-      Completed
-    </FilterLink>
-  </p>
+const AppFooter = () => (
+  <div className='foot'>
+    <Footer copyrights="&copy 2015 Copyright Text"
+      moreLinks={
+        <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
+      }
+      links={
+        <ul>
+          <li><a className="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          <li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          <li><a className="grey-text text-lighten-3" href="#!">Link 3</a></li>
+          <li><a className="grey-text text-lighten-3" href="#!">Link 4</a></li>
+        </ul>
+      }
+      className='footer'
+    >
+        <h5 className="white-text">Footer Content</h5>
+        <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+    </Footer>
+  </div>
 )
 
-export default Footer
+export default AppFooter
