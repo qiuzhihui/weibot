@@ -10,8 +10,6 @@ const MainPage = () => (
     <ImageGallery />
     <Carousel />
     <BrandGrid />
-
-    
   </div>
 )
 
