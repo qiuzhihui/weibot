@@ -7,7 +7,7 @@ import ControlledCarousel from './ControlledCarousel'
 import MainPage from './MainPage'
 
 const App = () => (
-  <div style={{'backgroundColor':'black'}}>
+  <div >
     <Header />
     <MainPage />
     <AppFooter />
