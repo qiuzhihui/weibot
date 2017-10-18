@@ -4,6 +4,7 @@ import {Carousel} from 'react-bootstrap';
 
 
 const TestCarousel = ({ offset, handleSelect }) => (
+  <div style={{clear:"both"}}>
     <Carousel activeIndex={offset.index} direction={offset.direction} onSelect={handleSelect}>
         <Carousel.Item>
           <img width={2000} height={401} alt="900x500" src="static/img/porsche1.jpg"/>
@@ -24,6 +25,7 @@ const TestCarousel = ({ offset, handleSelect }) => (
           </Carousel.Caption>
         </Carousel.Item>
     </Carousel>
+  </div>
 )
 
 

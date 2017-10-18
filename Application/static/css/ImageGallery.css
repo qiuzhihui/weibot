@@ -16,8 +16,10 @@ div.desc {
     text-align: center;
 }
 
-* {
+.ImageGallery {
     box-sizing: border-box;
+    position: relative;
+    display: block;
 }
 
 .responsive {
