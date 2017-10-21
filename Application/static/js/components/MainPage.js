@@ -10,9 +10,10 @@ const mapSettings = {
     lat: 42.349379,
     lng: -71.049842
   },
-  initialZoom: 12,
-  scrollWheel: true,
-  draggable: false
+  zoom: 12,
+  draggable: true,
+  zoomControl: true,
+  scrollwheel: false,
 }
 
 const MainPage = () => (

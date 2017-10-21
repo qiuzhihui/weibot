@@ -41,7 +41,6 @@ export class VisibleMap extends React.Component {
     const style = {
       width: '100%',
       height: '40vh',
-      backgroundColor: 'red',
     }
 
     return (      
@@ -50,7 +49,11 @@ export class VisibleMap extends React.Component {
              zoom={this.props.mapSettings.zoom}
              initialCenter={this.props.mapSettings.initialCenter}
              draggable={this.props.mapSettings.draggable}
-             scrollwheel={this.props.mapSettings.scrollwheel} />
+             scrollwheel={this.props.mapSettings.scrollwheel}
+             zoomControl={this.props.mapSettings.zoomControl}
+             disableDefaultUI={this.props.mapSettings.disableDefaultUI}>
+          <Marker />
+         </Map>
       </div>
     )
   }
