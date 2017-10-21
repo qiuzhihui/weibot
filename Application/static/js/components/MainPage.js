@@ -11,6 +11,8 @@ const mapSettings = {
     lng: -71.049842
   },
   initialZoom: 12,
+  scrollWheel: true,
+  draggable: false
 }
 
 const MainPage = () => (
