@@ -8,7 +8,7 @@ const mapStyles = {
   container: {
     position: 'absolute',
     width: '100%',
-    // height: '40vh'
+    height: '40vh'
   },
   map: {
     position: 'absolute',
@@ -114,7 +114,7 @@ export class Map extends React.Component {
           zoom: this.props.zoom,
           maxZoom: this.props.maxZoom,
           minZoom: this.props.maxZoom,
-          clickableIcons: this.props.clickableIcons,
+          // clickableIcons: this.props.clickableIcons,
           disableDefaultUI: this.props.disableDefaultUI,
           zoomControl: this.props.zoomControl,
           mapTypeControl: this.props.mapTypeControl,
@@ -216,7 +216,7 @@ Map.propTypes = {
   mapType: PropTypes.string,
   maxZoom: PropTypes.number,
   minZoom: PropTypes.number,
-  clickableIcons: PropTypes.bool,
+  // clickableIcons: PropTypes.bool,
   disableDefaultUI: PropTypes.bool,
   zoomControl: PropTypes.bool,
   mapTypeControl: PropTypes.bool,
