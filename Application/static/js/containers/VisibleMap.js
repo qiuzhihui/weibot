@@ -22,7 +22,10 @@ const mapStateToProps = (state, ownProps) => {
   return {
     // apiKey: "AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo",
     google: ownProps.google,
-    zoom: 10
+    zoom: ownProps.mapSettings.zoom,
+    draggable: ownProps.mapSettings.draggable,
+    scrollwheel: false,
+    initialCenter: ownProps.mapSettings.initialCenter
   }
 }
 
