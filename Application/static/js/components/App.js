@@ -10,9 +10,6 @@ const App = () => (
   <div style={{'backgroundColor':'black'}}>
     <Header />
     <MainPage />
-
-    <AddTodo />
-    <VisibleTodoList />
     <Footer />
   </div>
 )

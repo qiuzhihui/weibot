@@ -2,8 +2,20 @@ import React from 'react'
 import ControlledCarousel from './ControlledCarousel'
 import Carousel from '../containers/Carousel'
 import Video from './Video'
+import VisibleMap from '../containers/VisibleMap'
 
 import {Grid, Row, Col} from 'react-bootstrap';
+
+const basicSettings = {
+  initialCenter: {
+    lat: 29.999999,
+    lng: -90.102345
+  },
+  initialZoom: 12,
+}
+
+
+    // <Map config={basicSettings}/>
 
 const MainPage = () => (
   <div>
@@ -38,6 +50,9 @@ const MainPage = () => (
         </Col>
       </Row>
     </Grid>
+
+
+    <VisibleMap />
   </div>
 )
 
