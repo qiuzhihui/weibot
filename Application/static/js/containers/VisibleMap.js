@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Map from "../components/Map.js"
+import Marker from "../components/Marker.js"
 import GoogleApiWrapper from "../utils/GoogleApiComponent"
 
 // const mapStateToProps = (state, ownProps) => {
@@ -43,6 +44,10 @@ export class VisibleMap extends React.Component {
       height: '40vh',
     }
 
+    const onMarkClick = () => {
+      alert('Welcome to UBOSTON AUTO SCHOOL');
+    }
+
     return (      
       <div style={style}>
         <Map google={this.props.google}
@@ -52,7 +57,8 @@ export class VisibleMap extends React.Component {
              scrollwheel={this.props.mapSettings.scrollwheel}
              zoomControl={this.props.mapSettings.zoomControl}
              disableDefaultUI={this.props.mapSettings.disableDefaultUI}>
-          <Marker />
+          <Marker position={{lat: 42.349379, lng: -71.049842}}
+                  onClick={onMarkClick}/>
          </Map>
       </div>
     )
