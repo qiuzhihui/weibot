@@ -22,18 +22,6 @@ const FooterSocialIcon = () => (
                     <img className="social-icon" id="instagram-icon" src="../static/img/instagram.png" /><a id="bootstraplink" href="http://getbootstrap.com/">Instagram </a>
                 </li>
             </ul>
-            <ul className="list-inline">
-                <li>
-            <p className="copyright text"> Uboston Auto School</p>
-                    </li>
-                <li className="footer-menu-divider">&sdot;</li>
-                <li>
-                <p id="author" className="copyright text-muted small">Created By Jumbos</p>
-                </li>
-                <li className="footer-menu-divider">&sdot;</li>
-                <li><p className="copyright text-muted small">
-                    Copyright Aug. 2017</p></li>
-            </ul>
         </div> 
     </div>
   </div>
