@@ -19,27 +19,11 @@ const styleIcon = {
   filter: 'brightness(0) invert(1)'
 }
 
-let width = '50';
-let height = '50';
-
-const onEnter = () => {
-  console.log('asdfasf');
-  width = '60';
-  height = '60';
-}
-
-const onLeave = () => {
-  console.log('asdfasf');
-  styleIconSize.width = 50;
-  styleIconSize.height = 50;
-}
-
 class VideoOverlay extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-    }
+    this.state = {};
   }
 
   render() {
