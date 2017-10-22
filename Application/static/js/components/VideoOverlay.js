@@ -1,5 +1,7 @@
 import React from 'react'
+import {findDOMNode} from 'react-dom'
 import {PageHeader, Grid, Col, Row, Image} from 'react-bootstrap';
+import $ from 'jquery';
 
 const style = {
   position: 'absolute',
@@ -27,6 +29,11 @@ class VideoOverlay extends React.Component {
     this.state = {};
   }
 
+  scroll(ref) {
+    console.log(ref);
+    $('html, body').animate({scrollTop: findDOMNode(ref).getBoundingClientRect().top}, 100);
+  }
+
   render() {
     return (
       <div className='overlay' style={style}>
@@ -35,17 +42,22 @@ class VideoOverlay extends React.Component {
         <div style={styleIcon}>
           <Row>
             <Col xs={4} md={4}>
-              <Image className="VideoOverlayIcon" src="static/img/repair.png" circle 
-                     onClick={ () => {location.hash = "#id3"} }/>
-              <p> repair </p>
+              <div onClick={ this.scroll.bind(this, this.props.mainPageRefs.mainRef) }>
+                <Image className="VideoOverlayIcon" src="static/img/repair.png" circle />
+                <p> repair </p>
+              </div>  
             </Col>
             <Col xs={4} md={4}>
-              <Image className="VideoOverlayIcon" src="static/img/rent.png" circle id="id3"/>
-              <p> Rent </p>
+              <div onClick={ this.scroll.bind(this, this.props.mainPageRefs.rentalCarRef) }>
+                <Image className="VideoOverlayIcon" src="static/img/rent.png" circle />
+                <p> Rent </p>
+              </div>
             </Col>
             <Col xs={4} md={4}>
-              <Image className="VideoOverlayIcon" src="static/img/used.png" circle />
-              <p> Sell </p>
+              <div onClick={ this.scroll.bind(this, this.props.mainPageRefs.mapRef) }>
+                <Image className="VideoOverlayIcon" src="static/img/used.png" circle ref="1"/>
+                <p> Sell </p>
+              </div>
             </Col>
           </Row>
         </div>

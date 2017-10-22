@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom';
 import BrandGrid from './BrandGrid'
 import Carousel from '../containers/Carousel'
 import Video from './Video'
@@ -16,14 +17,31 @@ const mapSettings = {
   scrollwheel: false,
 }
 
-const MainPage = () => (
-  <div>
-    <Video />
-    <ImageGallery />
-    <Carousel />
-    <VisibleMap mapSettings={mapSettings}>
-    </VisibleMap>
-  </div>
-)
+class MainPage extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      mainRef: null,
+      rentalCarRef: null,
+      repairRef: null,
+      mapRef: null,
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <Video mainPageRefs={ this.state }
+               ref={ ref => !this.state.mainRef && this.setState({mainRef: ref})} />
+        <ImageGallery ref={ ref => !this.state.rentalCarRef && this.setState({rentalCarRef: ref})} />
+        <Carousel ref={ ref => !this.state.repairRef && this.setState({repairRef: ref})} />
+        <VisibleMap ref={ ref => !this.state.mapRef && this.setState({mapRef: ref})} 
+                    mapSettings={mapSettings} >
+        </VisibleMap>
+      </div>
+    )
+  }
+}
 
 export default MainPage
