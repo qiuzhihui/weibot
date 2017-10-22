@@ -2,7 +2,6 @@ import React from 'react'
 import {Label} from 'react-bootstrap';
 
 
-
 const FooterSocialIcon = () => (
   <div className="container">
     <div className="row" >
