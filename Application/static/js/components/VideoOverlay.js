@@ -19,29 +19,55 @@ const styleIcon = {
   filter: 'brightness(0) invert(1)'
 }
 
-const VideoOverlay = () => (
-  <div className='overlay' style={style}>
-    <h2>Uboston Auto School</h2>
-    <hr className="intro-divider" style={{display: 'block'}}/>
-    <div style={styleIcon}>
-      <Grid>
-        <Row>
-          <Col xs={4} md={4}>
-            <Image  width={50} height={50} src="static/img/repair.png" circle />
-            <p> repair </p>
-          </Col>
-          <Col xs={4} md={4}>
-            <Image width={50} height={50} src="static/img/rent.png" circle />
-            <p> Rent </p>
-          </Col>
-          <Col xs={4} md={4}>
-            <Image width={50} height={50} src="static/img/used.png" circle />
-            <p> Sell </p>
-          </Col>
-        </Row>
-      </Grid>
-    </div>
-  </div>
-)
+let width = '50';
+let height = '50';
+
+const onEnter = () => {
+  console.log('asdfasf');
+  width = '60';
+  height = '60';
+}
+
+const onLeave = () => {
+  console.log('asdfasf');
+  styleIconSize.width = 50;
+  styleIconSize.height = 50;
+}
+
+class VideoOverlay extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+    }
+  }
+
+  render() {
+    return (
+      <div className='overlay' style={style}>
+        <h2>Uboston Auto School</h2>
+        <hr className="intro-divider" style={{display: 'block'}}/>
+        <div style={styleIcon}>
+          <Grid>
+            <Row>
+              <Col xs={4} md={4}>
+                <Image className="VideoOverlayIcon" src="static/img/repair.png" circle />
+                <p> repair </p>
+              </Col>
+              <Col xs={4} md={4}>
+                <Image className="VideoOverlayIcon" src="static/img/rent.png" circle />
+                <p> Rent </p>
+              </Col>
+              <Col xs={4} md={4}>
+                <Image className="VideoOverlayIcon" src="static/img/used.png" circle />
+                <p> Sell </p>
+              </Col>
+            </Row>
+          </Grid>
+        </div>
+      </div>
+    )
+  }
+}
 
 export default VideoOverlay

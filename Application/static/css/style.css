@@ -21,3 +21,12 @@ footer.page-footer.footer {
   margin-right: -.75rem;
 }
 
+.VideoOverlayIcon {
+  width: 50;
+  height: 50;
+}
+
+.VideoOverlayIcon:hover {
+  width: 60;
+  height: 60;
+}
