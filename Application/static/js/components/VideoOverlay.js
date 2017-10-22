@@ -1,15 +1,15 @@
 import React from 'react'
-import {PageHeader, Grid, Col, Row, Image} from 'react-bootstrap';
+import {PageHeader, Grid, Col, Row, Image, FormGroup, FormControl, InputGroup, Button, ControlLabel, Form} from 'react-bootstrap';
 
 const style = {
   position: 'absolute',
   zIndex: 1,
   padding:'30px',
   color: 'white',
-  position: 'absolute',
   textAlign: 'center',
   width: '60%',
   marginLeft: '20%',
+  top: '10%'
 }
 
 
@@ -32,7 +32,15 @@ class VideoOverlay extends React.Component {
       <div className='overlay' style={style}>
         <h2>Uboston Auto School</h2>
         <hr className="intro-divider" style={{display: 'block'}}/>
-        <div style={styleIcon}>
+          <FormGroup>
+            <InputGroup>
+              <FormControl placeholder="zach@gmail.com" type="text" />
+              <InputGroup.Button>
+                <Button bsStyle="danger">Request a quote</Button>
+              </InputGroup.Button>
+            </InputGroup>
+          </FormGroup>
+          <div style={styleIcon}>
           <Row>
             <Col xs={4} md={4}>
               <Image className="VideoOverlayIcon" src="static/img/repair.png" circle 
