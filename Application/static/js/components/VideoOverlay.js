@@ -26,17 +26,25 @@ const VideoOverlay = () => (
     <div style={styleIcon}>
       <Grid>
         <Row>
-          <Col xs={4} md={4}>
-            <Image  width={50} height={50} src="static/img/repair.png" circle />
+          <Col xs={4} md={2}>
+            <Image  width={50} height={50} src="static/img/repair.png" rounded />
             <p> repair </p>
           </Col>
-          <Col xs={4} md={4}>
-            <Image width={50} height={50} src="static/img/rent.png" circle />
+          <Col xs={4} md={2}>
+            <Image width={50} height={50} src="static/img/rent.png" rounded />
             <p> Rent </p>
           </Col>
-          <Col xs={4} md={4}>
-            <Image width={50} height={50} src="static/img/used.png" circle />
+          <Col xs={4} md={2}>
+            <Image width={50} height={50} src="static/img/used.png" rounded />
             <p> Sell </p>
+          </Col>
+          <Col xs={4} md={2}>
+            <Image width={50} height={50} src="static/img/video.png" rounded />
+            <p> Video </p>
+          </Col>
+          <Col xs={4} md={2}>
+            <Image width={50} height={50} src="static/img/contact.png" rounded />
+            <p> Contact </p>
           </Col>
         </Row>
       </Grid>
