@@ -7,3 +7,4 @@ app = Flask('weibot', static_folder='Application/static', template_folder='Appli
 @app.route("/")
 def show_index_page():
     return render_template('index.html')
+
