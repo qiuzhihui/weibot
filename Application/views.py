@@ -16,3 +16,7 @@ def show_rental_page():
 @app.route("/used/")
 def show_used_page():
     return render_template('used.html')
+
+@app.route("/user/")
+def show_user_page():
+    return render_template()
