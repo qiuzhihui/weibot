@@ -1,7 +1,6 @@
 """
 car operation files
 """
-import simplejson as json
 import pdb
 # user defined packages
 
