@@ -5,21 +5,17 @@ import json
 import pdb
 # user defined packages
 from . import controller
-app = Flask('weibot', static_folder='Application/static', template_folder='Application/templates')
+app = Flask('weibot', static_folder="Application/static", template_folder="Application/templates", static_path="")
 
 # index page
 @app.route("/")
 def show_index_page():
-    return render_template('index.html')
+    return render_template("index.html")
 
 
-@app.route("/car", methods = ["GET, POST"])
+@app.route("/car", methods = ["GET", "POST", "PUT"])
 def show_rental_page():
-    print("test")
-    pdb.set_trace()
     if request.method == "GET":
-        raise Exception("test")
-        print("GETTING CARRRR")
         if "car_type" in request.args:
             car_type = request.args["car_type"]
             result = controller.get_car(car_type=car_type)
@@ -32,7 +28,7 @@ def show_rental_page():
                 data = json.loads(data)
             return controller.set_car(data)
 
-@app.route("/user",  methods = ["GET", "POST"])
+@app.route("/user",  methods = ["GET", "POST", "PUT"])
 def show_user_page():
     if request.method == "GET":
         print("GETTING user information.")
@@ -40,6 +36,7 @@ def show_user_page():
             email = request.args["email"]
             print("Getting information on email:", email)
             return controller.get_user_information(email=email)
+
     if request.method == "POST":
         if "data" in request.args:
             data = request.args["data"]
