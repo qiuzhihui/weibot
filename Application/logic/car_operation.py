@@ -43,8 +43,12 @@ def get_car_data(db, car_type):
 
 
 def set_car_data(db, data):
-    print(data)
+    """
 
+    :param db:
+    :param data:
+    :return:
+    """
     car_type = data["car_type"]
     made_year = data["made_year"]
     name = data["name"]
