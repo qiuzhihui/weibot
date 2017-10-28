@@ -44,12 +44,7 @@ class ConnectDB(object):
             db_cursor.execute(query)
             db.commit()
             db.close()
-            return True
+            return "success"
         except MySQLdb.Error as e:
             print("something went wrong: {}".format(e))
-            return False
-
-
-class MongoDB(object):
-    def __init__(self):
-        pass
+            return "fail"
