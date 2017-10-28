@@ -31,7 +31,7 @@ class User(object):
     """
     user information
     """
-    def __init__(self, id=None, username="", email="", phone_number="", last_name="", first_name="", register_date=""):
+    def __init__(self, id=None, username="", email="", phone_number="", last_name="", first_name="", register_date="", password="", manage=""):
         self.id = id
         self.username = username
         self.email = email
@@ -39,6 +39,8 @@ class User(object):
         self.last_name = last_name
         self.first_name = first_name
         self.register_date = register_date
+        self.password = password
+        self.manage = manage
 
 
 class Image(object):

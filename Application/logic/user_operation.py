@@ -2,7 +2,59 @@ import json
 
 # user defined packages
 from .import objects
+from .import utils
 
+
+def create_new_user(db, data):
+    """
+
+    :param db: type object
+    :param data: type dict
+    :return: str
+    """
+    if not isinstance(data, dict):
+        data = json.loads(data)
+    # step one verify if user already exist
+    email = data["email"]
+    user_data = get_user_data(db=db, email=email)
+    if len(user_data):
+        return "duplicate"
+    else:
+        # step two create account and send email
+        set_user_data(db=db, data=data)
+        utils.send_email(to_email=email, subject="Welcome to our website!", content="You account has been created!")
+        return "success"
+
+
+def verify_login(db, data):
+    """
+    verify user log in success
+    :param db: type object
+    :param data: type dict
+    :return: str
+    """
+    if not isinstance(data, dict):
+        data = json.loads(data)
+    email = data["email"]
+    password = data["password"]
+    user_data = get_user_data(db=db, email=email)
+    if email == user_data["email"] and password == user_data["password"]:
+        return "success"
+    return "fail"
+
+
+def retrieve_password(db, email):
+    """
+    enter email, then send password to the email
+    :param db: type object
+    :param email: type str
+    :return: str
+    """
+    user_data = get_user_data(db=db, email=email)
+    if len(user_data):
+        password = user_data["password"]
+        utils.send_email(to_email=email, subject="Retrieve password.", content="Your password is {}".format(password))
+    return "success"
 
 def get_user_data(db, email):
     """
@@ -27,17 +79,19 @@ def get_user_data(db, email):
                             last_name=row[3],
                             first_name=row[4],
                             phone_number=row[5],
-                            register_date=row[8])
+                            register_date=row[8],
+                            manage=row[7],
+                            password=row[6])
 
         result = user.__dict__
-    return json.dumps(result)
+    return result
 
 
 def set_user_data(db, data):
     """
     set user data to database
     :param db: type object
-    :param data: type str
+    :param data: type dict
     :return: dict
     """
     if not isinstance(data, dict):
