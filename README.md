@@ -15,4 +15,4 @@
 - brew install mysql
 - brew services start mysql
 - mysql.server start
-- ip install mysqlclient
+- pip install mysqlclient
