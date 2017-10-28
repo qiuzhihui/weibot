@@ -1,9 +1,9 @@
 """
 car operation files
 """
+import simplejson as json
 import pdb
 # user defined packages
-import json
 
 from .import utils
 from .import objects
@@ -27,6 +27,7 @@ def get_car_data(db, car_type):
 
     rows = db.basic_getter(query=query)
     for index, row in enumerate(rows):
+        print(row)
         row = [str(x) for x in row]
         car = objects.Car(id=row[0], car_type=row[1], made_year=row[2], name=row[3],
                           brand=row[4], mpg_local=row[5], mpg_highway=row[6], interior_color=row[7],
@@ -35,20 +36,13 @@ def get_car_data(db, car_type):
         car = car.__dict__
         result.append(car)
 
-
     if result:
         # need to do some operation before return
         # let me wait until i have time to finish this part
-        return json.dumps(result)
+        return result
 
 
 def set_car_data(db, data):
-    """
-
-    :param db:
-    :param data:
-    :return:
-    """
     car_type = data["car_type"]
     made_year = data["made_year"]
     name = data["name"]
@@ -63,15 +57,15 @@ def set_car_data(db, data):
     manual_auto = data["manual_auto"]
     fuel_type = data["fuel_type"]
     description = data["description"]
-    active = data.get("active", "active")
+    active = data.gete("active", "active")
 
     query = "INSERT INTO car (car_type, made_year, name, brand, mpg_local, mpg_highway, interior_color, outside_color, price, kbb_price, millage, manual_auto, fuel_type, description, active) " \
             "VALUES   ({l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r});" \
             "".format(car_type, made_year, name, brand,
                       mpg_local, mpg_highway, interior_color, outside_color,
                       price, kbb_price, millage, manual_auto, fuel_type, description, active, l="'", r="'")
+    print(query)
     result = db.basic_setter(query=query)
-    return str(result)
-
-
+    print(result)
+    return result
     
