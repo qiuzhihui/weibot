@@ -1,7 +1,6 @@
 import React from 'react'
 
 const FooterSocialIcon = () => (
-  <div className="container">
     <div className="row" >
         <div className="col-lg-12">
             <h6 id="techword">Follow us on:</h6>
@@ -24,7 +23,6 @@ const FooterSocialIcon = () => (
             </ul>
         </div> 
     </div>
-  </div>
 )
 
 export default FooterSocialIcon

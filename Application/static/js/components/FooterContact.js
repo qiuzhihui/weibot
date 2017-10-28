@@ -3,7 +3,6 @@ import {Label} from 'react-bootstrap';
 
 
 const FooterSocialIcon = () => (
-  <div className="container">
     <div className="row" >
         <div className="col-lg-12">
             <h6 id="techword">Contack Us</h6>
@@ -20,7 +19,6 @@ const FooterSocialIcon = () => (
             <h7> hahahah@tufts.edu</h7>
         </div> 
     </div>
-  </div>
 )
 
 export default FooterSocialIcon
