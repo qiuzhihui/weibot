@@ -43,13 +43,16 @@ def verify_login(db, data):
     return "fail"
 
 
-def retrieve_password(db, email):
+def retrieve_password(db, data):
     """
     enter email, then send password to the email
     :param db: type object
-    :param email: type str
+    :param data: type dict
     :return: str
     """
+    if not isinstance(data, dict):
+        data = json.loads(data)
+    email = data["email"]
     user_data = get_user_data(db=db, email=email)
     if len(user_data):
         password = user_data["password"]

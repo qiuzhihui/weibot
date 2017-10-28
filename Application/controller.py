@@ -1,12 +1,43 @@
 import json
 
 # user defined packages
-from logic import user_operation
-from logic import car_operation
-from logic import image_operation
-from logic import connect_db
+from .logic import user_operation
+from .logic import car_operation
+from .logic import image_operation
+from .logic import connect_db
 db = connect_db.ConnectDB()
 
+
+def create_new_user(data):
+    """
+    create user return success as success
+    :param data: type dict
+    :return: str
+    """
+    result = user_operation.create_new_user(db=db, data=data)
+    # add some other logic here
+    return result
+
+
+def verify_login(data):
+    """
+    verify if password and username matches
+    :param data:
+    :return:
+    """
+    result = user_operation.verify_login(db=db, data=data)
+    # add some other logic here
+    return result
+
+
+def retrieve_password(data):
+    """
+    retrieve password
+    :param data:
+    :return:
+    """
+    result = user_operation.retrieve_password(db=db, data=data)
+    return result
 
 
 def get_user_information(email):

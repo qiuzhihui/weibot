@@ -25,17 +25,39 @@ def test_car_service(port=5000, machine="localhost", car_type="used_car"):
 
 def test_user_service(port=5000, machine="localhost", email="zhihui.qiu.tufts@gmail.com"):
     url = "http://{machine}:{port}/user".format(machine=machine, port=port)
-    response = requests.get(url=url, params={"email": email})
-    if response.status_code == requests.codes.ok:
-        print(response.content)
 
-    data = {"username": "wanhao", "email": "wanhao.maple@gmail.com",
-            "last_name": "wan", "first_name": "hao", "phone_number": "6176765896",
-            "password": "qiuzhihui", "register_date": "10/28/2017"}
+
+    # test create user
+    data = {"username": "winstonchi", "email": "winstonchilw@gmail.com",
+            "last_name": "chi", "first_name": "winston", "phone_number": "8572598366",
+            "password": "winstonchi", "register_date": "10/29/2017"}
     data = json.dumps(data)
-    response = requests.post(url=url, params={"data": data})
+    response = requests.post(url=url, params={"create_user": data})
+    if response.status_code == requests.codes.ok:
+        print("Create Success!!")
+        print(response.content)
+    else:
+        print("!!!! Create Failed!!!")
+
+    # test login
+    data = {"email":"winstonchilw@gmail.com", "password": "winstonchi"}
+    data = json.dumps(data)
+    response = requests.get(url=url, params={"verify_login": data})
     if response.status_code == requests.codes.ok:
         print(response.content)
+        print("Login success!")
+    else:
+        print("!!!! login failed!!!!")
+
+    # test reset password
+    data = {"email":"winstonchilw@gmail.com"}
+    data = json.dumps(data)
+    response = requests.get(url=url, params={"retrieve_password": data})
+    if response.status_code == requests.codes.ok:
+        print(response.content)
+        print("Reset success!!")
+    else:
+        print("!!! reset failed !!!")
 
 
 if __name__ == '__main__':
