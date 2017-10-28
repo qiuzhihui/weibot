@@ -1,7 +1,7 @@
-from .logic import user_operation
-from .logic import car_operation
-from .logic import image_operation
-from .logic import connect_db
+from logic import user_operation
+from logic import car_operation
+from logic import image_operation
+from logic import connect_db
 
 db = connect_db.ConnectDB()
 
@@ -42,3 +42,16 @@ def set_car(data):
     """
     is_succeed = car_operation.set_car_data(db=db, data=data)
     return is_succeed
+
+if __name__ == "__main__":
+    car_data = {"car_type": "rental_car", "made_year": "20100", "name": "Model 3", "brand": "Tesla",
+            "mpg_local": "30", "mpg_highway": "30", "interior_color": "black", "outside_color": "white",
+            "price": "35,000", "kbb_price": "1,000", "millage": "10", "manual_auto": "auto",
+            "fuel_type": "electric", "description": "This car is pretty much new"}
+    print(set_car(data=car_data))
+    #
+    # user_data = {"username": "wanhao", "email": "wanhao.maple@gmail.com",
+    #         "last_name": "wan", "first_name": "hao", "phone_number": "6176765896",
+    #         "password": "qiuzhihui", "register_date": "10/28/2017"}
+    # set_user_information(data=user_data)
+    # result = get_user_information(email="zhihui.qiu.tufts@gmail.com")

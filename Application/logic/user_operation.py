@@ -16,19 +16,21 @@ def get_user_data(db, email):
                                                                       rq="'")
     print("getting user with query", query)
     rows = db.basic_getter(query=query)
+    result = {}
     if len(rows):
         row = rows[0]
         print(row)
         row = [str(x) for x in row]
-        user = objects.User(username=row[0],
-                            email=row[1],
-                            last_name=row[2],
-                            first_name=row[3],
-                            phone_number=row[4],
-                            register_date=row[5])
+        user = objects.User(id=row[0],
+                            username=row[1],
+                            email=row[2],
+                            last_name=row[3],
+                            first_name=row[4],
+                            phone_number=row[5],
+                            register_date=row[8])
 
-        return user.__dict__
-    return {}
+        result = user.__dict__
+    return json.dumps(result)
 
 
 def set_user_data(db, data):
@@ -53,4 +55,5 @@ def set_user_data(db, data):
                 "VALUES ({l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r}, {l}{}{r});"\
             .format(username, email, last_name,first_name, phone_number, password, manage, register_date, l="'", r="'")
     print("query:\n", query)
-    return db.basic_setter(query=query)
+    result = db.basic_setter(query=query)
+    return str(result)
