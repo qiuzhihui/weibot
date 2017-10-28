@@ -1,10 +1,10 @@
 import json
 
 # user defined packages
-from logic import user_operation
-from logic import car_operation
-from logic import image_operation
-from logic import connect_db
+from .logic import user_operation
+from .logic import car_operation
+from .logic import image_operation
+from .logic import connect_db
 db = connect_db.ConnectDB()
 
 
