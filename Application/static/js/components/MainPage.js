@@ -11,7 +11,7 @@ const mapSettings = {
     lat: 42.349379,
     lng: -71.049842
   },
-  zoom: 12,
+  zoom: 13,
   draggable: true,
   zoomControl: true,
   scrollwheel: false,
@@ -34,11 +34,13 @@ class MainPage extends React.Component {
       <div>
         <Video mainPageRefs={ this.state }
                ref={ ref => !this.state.mainRef && this.setState({mainRef: ref})} />
-        <ImageGallery ref={ ref => !this.state.rentalCarRef && this.setState({rentalCarRef: ref})} />
-        <Carousel ref={ ref => !this.state.repairRef && this.setState({repairRef: ref})} />
-        <VisibleMap ref={ ref => !this.state.mapRef && this.setState({mapRef: ref})} 
-                    mapSettings={mapSettings} >
-        </VisibleMap>
+        <div className="container">
+          <ImageGallery ref={ ref => !this.state.rentalCarRef && this.setState({rentalCarRef: ref})} />
+          <Carousel ref={ ref => !this.state.repairRef && this.setState({repairRef: ref})} />
+          <VisibleMap mapSettings={mapSettings}
+                      ref={ ref => !this.state.mapRef && this.setState({mapRef: ref})}>
+          </VisibleMap>
+        </div>
       </div>
     )
   }

@@ -1,8 +1,6 @@
 import React from 'react'
 import {findDOMNode} from 'react-dom'
 import {PageHeader, Grid, Col, Row, Image, FormGroup, FormControl, InputGroup, Button, ControlLabel, Form} from 'react-bootstrap';
-import $ from 'jquery';
-
 
 
 const style = {

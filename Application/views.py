@@ -61,4 +61,3 @@ def show_user_page():
     return result
 
 
-
