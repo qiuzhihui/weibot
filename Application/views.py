@@ -5,7 +5,7 @@ import json
 import pdb
 # user defined packages
 from . import controller
-app = Flask('weibot', static_folder="Application/static", template_folder="Application/templates", static_path="")
+app = Flask('weibot', static_folder="Application/static", template_folder="Application/templates")
 
 # index page
 @app.route("/")

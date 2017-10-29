@@ -3,7 +3,6 @@ import React from 'react'
 const FooterSocialIcon = () => (
     <div className="row" >
         <div className="col-lg-12">
-            <h6 id="techword">Follow us on:</h6>
             <ul className="list-inline">
                 <li>
                     <img className="social-icon" id="twitter-icon" src="static/img/twitter.svg" /><a href="https://www.python.org/">Twitter</a>
