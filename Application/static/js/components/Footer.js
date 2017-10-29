@@ -7,6 +7,7 @@ import FooterLegal from './FooterLegal'
 const footer = {
   background: '#383939',
   color: 'rgba(255,255,255,.6)',
+  paddingBottom: '50px'
 }
 
 const style = {
