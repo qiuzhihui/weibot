@@ -19,6 +19,10 @@ const brandLabal = {
   marginBottom: '50px'
 }
 
+const section = {
+   marginTop: '20px',
+}
+
 const AppFooter = () => (
   <footer style={footer}>
     <Grid style={style}>
@@ -29,10 +33,10 @@ const AppFooter = () => (
         </Col>
       </Row>
       <Row>
-        <Col xs={12} md={6}>
+        <Col xs={12} md={6} style={section}>
           <FooterLegal />
         </Col>
-        <Col xs={12} md={6}>
+        <Col xs={12} md={6} style={section}>
           <FooterSocialIcon />
           <FooterContact />
         </Col>
