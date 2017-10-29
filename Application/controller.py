@@ -1,10 +1,10 @@
 import json
 
 # user defined packages
-from .logic import user_operation
-from .logic import car_operation
-from .logic import image_operation
-from .logic import connect_db
+from logic import user_operation
+from logic import car_operation
+from logic import image_operation
+from logic import connect_db
 db = connect_db.ConnectDB()
 
 
@@ -49,6 +49,7 @@ def get_user_information(email):
     user_info = user_operation.get_user_data(db=db, email=email)
     return json.dumps(user_info)
 
+
 def set_user_information(data):
     """
 
@@ -57,6 +58,7 @@ def set_user_information(data):
     """
     is_succeed = user_operation.set_user_data(data=data, db=db)
     return is_succeed
+
 
 
 def get_car(car_type):
@@ -69,6 +71,7 @@ def get_car(car_type):
     result = car_operation.get_car_data(db=db, car_type=car_type)
     # need to add car image link here as well
     return result
+
 
 def set_car(data):
     """
@@ -85,8 +88,9 @@ if __name__ == "__main__":
     #         "fuel_type": "electric", "description": "This car is pretty much new"}
     # print(set_car(data=car_data))
     #
-    user_data = {"username": "wanhao", "email": "wanhao.maple@gmail.com",
-            "last_name": "wan", "first_name": "hao", "phone_number": "6176765896",
-            "password": "qiuzhihui", "register_date": "10/28/2017"}
-    set_user_information(data=user_data)
-    result = get_user_information(email="zhihui.qiu.tufts@gmail.com")
+    # user_data = {"username": "wanhao", "email": "wanhao.maple@gmail.com",
+    #         "last_name": "wan", "first_name": "hao", "phone_number": "6176765896",
+    #         "password": "qiuzhihui", "register_date": "10/28/2017"}
+    # set_user_information(data=user_data)
+    # result = get_user_information(email="zhihui.qiu.tufts@gmail.com")
+    print(car_operation.get_max_car_id(db=db))

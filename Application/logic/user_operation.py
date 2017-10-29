@@ -7,7 +7,7 @@ from .import utils
 
 def create_new_user(db, data):
     """
-
+    check if user exist then create new one
     :param db: type object
     :param data: type dict
     :return: str
@@ -58,6 +58,7 @@ def retrieve_password(db, data):
         password = user_data["password"]
         utils.send_email(to_email=email, subject="Retrieve password.", content="Your password is {}".format(password))
     return "success"
+
 
 def get_user_data(db, email):
     """

@@ -26,7 +26,6 @@ def test_car_service(port=5000, machine="localhost", car_type="used_car"):
 def test_user_service(port=5000, machine="localhost", email="zhihui.qiu.tufts@gmail.com"):
     url = "http://{machine}:{port}/user".format(machine=machine, port=port)
 
-
     # test create user
     data = {"username": "winstonchi", "email": "winstonchilw@gmail.com",
             "last_name": "chi", "first_name": "winston", "phone_number": "8572598366",
