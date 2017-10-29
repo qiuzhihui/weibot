@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import BrandGrid from './BrandGrid'
 import Carousel from '../containers/Carousel'
+import RepairGrid from './RepairGrid'
 import Video from './Video'
 import VisibleMap from '../containers/VisibleMap'
 import ImageGallery from'./ImageGallery'
@@ -37,6 +38,8 @@ class MainPage extends React.Component {
         <div className="container">
           <ImageGallery ref={ ref => !this.state.rentalCarRef && this.setState({rentalCarRef: ref})} />
           <Carousel ref={ ref => !this.state.repairRef && this.setState({repairRef: ref})} />
+
+          <RepairGrid />
           <VisibleMap mapSettings={mapSettings}
                       ref={ ref => !this.state.mapRef && this.setState({mapRef: ref})}>
           </VisibleMap>
