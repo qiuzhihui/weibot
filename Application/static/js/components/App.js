@@ -6,12 +6,14 @@ import Header from './Header'
 import ControlledCarousel from './ControlledCarousel'
 import MainPage from './MainPage'
 
+
+
 const App = () => (
   <div >
     <Header />
     <MainPage />
-    <AppFooter />
   </div>
+
 )
 
 export default App
