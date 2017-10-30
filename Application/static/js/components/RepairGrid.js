@@ -23,41 +23,49 @@ const repairServices = [
                  'wear and precise steering. A misaligned vehicle could also affect your gas mileage. ' +
                  'With our state-of-the-art computerized alignment machines we will also provide you ' +
                  'with a computer printout showing the adjustments that were made to your vehicle.',
+    iconClass: 'fa fa-arrows-alt',
   },
   {
     key: 2,
     name: 'Batteries',
+    iconClass: 'fa fa-battery-half',
   },
   {
     key: 3,
     name: 'Brake Services',
+    iconClass: 'fa fa-hand-paper-o',
   },
   {
     key: 4,
     name: 'Computer Diagnostics',
+    iconClass: 'fa fa-desktop',
   },
   {
     key: 5,
     name: 'Coolant Fluid Exchange',
+    iconClass: 'fa fa-snowflake-o',
   },
   {
     key: 6,
     name: 'Factory Scheduled Maintenance',
+    iconClass: 'fa fa-cog',
   },
   {
     key: 7,
     name: 'Headlight Restoration',
+    iconClass: 'fa fa-car',
   },
   {
     key: 8,
     name: 'Oil Change Services',
+    iconClass: 'fa fa-cogs',
   },
 ]
 
 const listColumns = repairServices.map((service) => {
   return (
     <Col xs={6} md={3} style={colStyle} key={ service.key }>
-      <h5> { service.name }</h5>
+      <h5><i className={ service.iconClass}></i> { service.name }</h5>
       <span> { service.description } </span>
     </Col> 
   )
