@@ -107,7 +107,14 @@ const repairServices = [
 const listColumns = repairServices.map((service) => {
   return (
     <Col xs={6} md={3} style={colStyle} key={ service.key }>
-      <h5><i className={ service.iconClass}></i> { service.name }</h5>
+      <h2 className="row">
+        <div className="col-md-2" style={{ marginTop:'5px' }}>
+          <i className={ service.iconClass}></i> 
+        </div>
+        <div className="col-md-10">
+          <span>{ service.name }</span>
+        </div>
+      </h2>
       <span> { service.description } </span>
     </Col> 
   )
