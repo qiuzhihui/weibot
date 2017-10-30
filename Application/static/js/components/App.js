@@ -12,8 +12,8 @@ const App = () => (
   <div >
     <Header />
     <MainPage />
+    <AppFooter />
   </div>
-
 )
 
 export default App

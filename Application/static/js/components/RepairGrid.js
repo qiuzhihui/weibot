@@ -27,30 +27,72 @@ const repairServices = [
   {
     key: 2,
     name: 'Batteries',
+    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,'+
+                  'our certified technicians will thoroughly inspect the system and provide a written' + 
+                  'estimate for any repairs needed. The causes of A/C failure are many; from as simple' +
+                  'as a blown fuse to as complicated as a seized A/C compressor. We will diagnose the' +
+                  'problem and get you back on the road and staying cool in no time!' +                  
+                  'Our technicians use quality parts and are experienced with all types of vehicles.',
   },
   {
     key: 3,
     name: 'Brake Services',
+    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,'+
+                  'our certified technicians will thoroughly inspect the system and provide a written' + 
+                  'estimate for any repairs needed. The causes of A/C failure are many; from as simple' +
+                  'as a blown fuse to as complicated as a seized A/C compressor. We will diagnose the' +
+                  'problem and get you back on the road and staying cool in no time!' +                  
+                  'Our technicians use quality parts and are experienced with all types of vehicles.',
   },
   {
     key: 4,
     name: 'Computer Diagnostics',
+    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,'+
+                  'our certified technicians will thoroughly inspect the system and provide a written' + 
+                  'estimate for any repairs needed. The causes of A/C failure are many; from as simple' +
+                  'as a blown fuse to as complicated as a seized A/C compressor. We will diagnose the' +
+                  'problem and get you back on the road and staying cool in no time!' +                  
+                  'Our technicians use quality parts and are experienced with all types of vehicles.',
   },
   {
     key: 5,
     name: 'Coolant Fluid Exchange',
+    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,'+
+                  'our certified technicians will thoroughly inspect the system and provide a written' + 
+                  'estimate for any repairs needed. The causes of A/C failure are many; from as simple' +
+                  'as a blown fuse to as complicated as a seized A/C compressor. We will diagnose the' +
+                  'problem and get you back on the road and staying cool in no time!' +                  
+                  'Our technicians use quality parts and are experienced with all types of vehicles.',
   },
   {
     key: 6,
     name: 'Factory Scheduled Maintenance',
+    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,'+
+                  'our certified technicians will thoroughly inspect the system and provide a written' + 
+                  'estimate for any repairs needed. The causes of A/C failure are many; from as simple' +
+                  'as a blown fuse to as complicated as a seized A/C compressor. We will diagnose the' +
+                  'problem and get you back on the road and staying cool in no time!' +                  
+                  'Our technicians use quality parts and are experienced with all types of vehicles.',
   },
   {
     key: 7,
     name: 'Headlight Restoration',
+    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,'+
+                  'our certified technicians will thoroughly inspect the system and provide a written' + 
+                  'estimate for any repairs needed. The causes of A/C failure are many; from as simple' +
+                  'as a blown fuse to as complicated as a seized A/C compressor. We will diagnose the' +
+                  'problem and get you back on the road and staying cool in no time!' +                  
+                  'Our technicians use quality parts and are experienced with all types of vehicles.',
   },
   {
     key: 8,
     name: 'Oil Change Services',
+    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,'+
+                  'our certified technicians will thoroughly inspect the system and provide a written' + 
+                  'estimate for any repairs needed. The causes of A/C failure are many; from as simple' +
+                  'as a blown fuse to as complicated as a seized A/C compressor. We will diagnose the' +
+                  'problem and get you back on the road and staying cool in no time!' +                  
+                  'Our technicians use quality parts and are experienced with all types of vehicles.',
   },
 ]
 
