@@ -98,7 +98,13 @@ def upload():
         print(key, "=>", value)
 
     for upload in request.files.getlist("file"):
+        print(request.files)
+        print(dir(upload))
+        print(upload)
+        data = upload.read()
         filename = upload.filename.rsplit("/")[0]
+        controller.upload_image(file_path=filename, image_binary=data)
+
         destination = "/".join([target, filename])
         print("Accept incoming file:", filename)
         print("Save it to:", destination)

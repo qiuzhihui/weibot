@@ -5,7 +5,7 @@ import boto3
 from .import objects
 
 
-def upload_image_binary(s3, file_path):
+def upload_image_binary(s3, file_path, image_binary):
     """
     upload data to s3
     :param data:
@@ -20,13 +20,8 @@ def upload_image_binary(s3, file_path):
     # images = data.get("images")
     # for image in images:
     #path = "/".join([prefix, file])
-    data = open(file_path, "rb")
-    save_path = file_path.split("/")[-1]
-    bucket = s3.Bucket()
-    result = s3.Bucket("ubostonautoschool").put_object(Key="RentalCar/{}".format(save_path), Body=data)
-    result.Acl().put(ACL='public-read')
-
-    return
+    result = s3.Bucket("ubostonautoschool").put_object(Key="RentalCar/{}".format(file_path), Body=image_binary)
+    return result
 
 
 def get_image_data(db, car_id):

@@ -8,8 +8,11 @@ from .logic import connect_db
 db = connect_db.ConnectDB()
 s3 = boto3.resource("s3")
 
-def upload_image(file_path):
-    image_operation.upload_image_binary(s3=s3, file_path=file_path)
+
+def upload_image(file_path, image_binary):
+    result = image_operation.upload_image_binary(s3=s3, file_path=file_path, image_binary=image_binary)
+    return result
+
 
 def create_new_user(data):
     """
