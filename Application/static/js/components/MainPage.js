@@ -36,10 +36,10 @@ class MainPage extends React.Component {
         <Video mainPageRefs={ this.state }
                ref={ ref => !this.state.mainRef && this.setState({mainRef: ref})} />
         <div className="container">
-          <ImageGallery ref={ ref => !this.state.rentalCarRef && this.setState({rentalCarRef: ref})} />
-          <Carousel ref={ ref => !this.state.repairRef && this.setState({repairRef: ref})} />
-
           <RepairGrid />
+        </div>
+          <Carousel ref={ ref => !this.state.repairRef && this.setState({repairRef: ref})} />
+        <div className="container">
           <VisibleMap mapSettings={mapSettings}
                       ref={ ref => !this.state.mapRef && this.setState({mapRef: ref})}>
           </VisibleMap>
