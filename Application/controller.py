@@ -1,12 +1,15 @@
 import json
-
+import boto3
 # user defined packages
-from logic import user_operation
-from logic import car_operation
-from logic import image_operation
-from logic import connect_db
+from .logic import user_operation
+from .logic import car_operation
+from .logic import image_operation
+from .logic import connect_db
 db = connect_db.ConnectDB()
+s3 = boto3.resource("s3")
 
+def upload_image(file_path):
+    image_operation.upload_image_binary(s3=s3, file_path=file_path)
 
 def create_new_user(data):
     """

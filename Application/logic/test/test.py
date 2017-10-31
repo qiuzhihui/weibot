@@ -4,6 +4,8 @@ test file
 import json
 import argparse
 import requests
+import boto3
+import botocore
 
 def test_car_service(port=5000, machine="localhost", car_type="used_car"):
     url = "http://{machine}:{port}/car".format(machine=machine, port=port)
@@ -59,17 +61,30 @@ def test_user_service(port=5000, machine="localhost", email="zhihui.qiu.tufts@gm
         print("!!! reset failed !!!")
 
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="test argparser")
-    parser.add_argument("-p", "--port", dest="port", default=5000)
-    parser.add_argument("-m", "--machine", dest="machine", default="localhost")
-    parser.add_argument("-s", "--service", dest="service", default="car")
+def upload_photo_test():
+    s3 = boto3.resource("s3")
+    for bucket in s3.buckets.all():
+        print(bucket.name)
+    path = "/Users/winston/Desktop/w.jpg"
+    data = open(path, "rb")
 
-    args = parser.parse_args()
-    port = args.port
-    service = args.service
-    machine = args.machine
-    if service == "car":
-        test_car_service(port=port, machine=machine)
-    if service == "user":
-        test_user_service(port=port, machine=machine)
+    result = s3.Bucket("ubostonautoschool").put_object(Key="RentalCar/do2.jpg", Body=data)
+    #print(response)
+    result.put(ACL='public-read')
+    print(result)
+
+if __name__ == '__main__':
+    # parser = argparse.ArgumentParser(description="test argparser")
+    # parser.add_argument("-p", "--port", dest="port", default=5000)
+    # parser.add_argument("-m", "--machine", dest="machine", default="localhost")
+    # parser.add_argument("-s", "--service", dest="service", default="car")
+    #
+    # args = parser.parse_args()
+    # port = args.port
+    # service = args.service
+    # machine = args.machine
+    # if service == "car":
+    #     test_car_service(port=port, machine=machine)
+    # if service == "user":
+    #     test_user_service(port=port, machine=machine)
+    upload_photo_test()

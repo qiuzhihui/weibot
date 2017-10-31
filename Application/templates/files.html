@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<h1>Upload Successful!</h1>
+
+Here are the files you just uploaded. Your form data was discarded in this demo
+app, but if you check your terminal window you can see that all their names and
+values were submitted to the server.<p>
+
+{% for file in files %}
+    <h2>{{ file }}</h2>
+    <img src="{{ url_for('static', filename='./files/{}'.format(uuid, file)) }}">
+{% endfor %}
+
+</body>
+</html>
