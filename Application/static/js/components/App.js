@@ -5,6 +5,7 @@ import VisibleTodoList from '../containers/VisibleTodoList'
 import Header from './Header'
 import ControlledCarousel from './ControlledCarousel'
 import MainPage from './MainPage'
+import FlipCardGallery from './FlipCardGallery'
 
 
 
