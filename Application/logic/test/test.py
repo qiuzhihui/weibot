@@ -87,4 +87,5 @@ if __name__ == '__main__':
     #     test_car_service(port=port, machine=machine)
     # if service == "user":
     #     test_user_service(port=port, machine=machine)
-    upload_photo_test()
+    #upload_photo_test()
+    test_car_service()

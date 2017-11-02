@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 from flask import request, redirect, url_for
+import requests
+
 import os
 import json
 import glob
@@ -27,12 +29,13 @@ def show_rental_page():
             result = controller.get_car(car_type=car_type)
 
     if request.method == "POST":
+        print("received post request.")
         if "data" in request.args:
             data = request.args["data"]
             if not isinstance(data, dict):
                data = json.loads(data)
             result = controller.set_car(data)
-    return result
+    return str(result)
 
 @app.route("/user",  methods = ["GET", "POST", "PUT"])
 def show_user_page():
@@ -63,82 +66,36 @@ def show_user_page():
             return result
     return result
 
-
-@app.route("/portal")
-def show_portal_page():
-    return render_template("upload.html")
-
-
-
-@app.route("/upload", methods=["POST"])
-def upload():
-    """Handle the upload of a file."""
+@app.route("/hello", methods=["GET", "POST", "PUT"])
+def hello():
     form = request.form
+    if request.method == 'POST':
+        car_type = form["car_type"]
+        made_year = form["made_year"]
+        price = form["price"]
+        kbb_price = form["kbb_price"]
+        name = form["name"]
+        millage = form["millage"]
+        brand = form["brand"]
+        fuel_type = form["fuel_type"]
+        mpg_local = form["mpg_local"]
+        mpg_highway = form["mpg_highway"]
+        interior_color = form["interior_color"]
+        outside_color = form["outside_color"]
+        manual_auto = form["manual_auto"]
+        description = form["description"]
 
-    # Create a unique "session ID" for this particular batch of uploads.
-    upload_key = str(uuid4())
+        data = {"car_type": car_type, "made_year": made_year, "name": name, "brand": brand,
+                "mpg_local": mpg_local, "mpg_highway": mpg_highway, "interior_color": interior_color, "outside_color": outside_color,
+                "price": price, "kbb_price": kbb_price, "millage": millage, "manual_auto": manual_auto,
+                "fuel_type": fuel_type, "description": description}
+        print("adding new car:", data)
 
-    # Is the upload using Ajax, or a direct POST by the form?
-    is_ajax = False
-    if form.get("__ajax", None) == "true":
-        is_ajax = True
-
-    # Target folder for these uploads.
-    target = "./files/{}".format(upload_key)
-    try:
-        os.mkdir(target)
-    except:
-        if is_ajax:
-            return ajax_response(False, "Couldn't create upload directory: {}".format(target))
-        else:
-            return "Couldn't create upload directory: {}".format(target)
-
-    print("=== Form Data ===")
-    for key, value in list(form.items()):
-        print(key, "=>", value)
-
-    for upload in request.files.getlist("file"):
-        print(request.files)
-        print(dir(upload))
-        print(upload)
-        data = upload.read()
-        filename = upload.filename.rsplit("/")[0]
-        controller.upload_image(file_path=filename, image_binary=data)
-
-        destination = "/".join([target, filename])
-        print("Accept incoming file:", filename)
-        print("Save it to:", destination)
-        upload.save(destination)
-
-    if is_ajax:
-        return ajax_response(True, upload_key)
-    else:
-        return redirect(url_for("upload_complete", uuid=upload_key))
-
-
-@app.route("/files/<uuid>")
-def upload_complete(uuid):
-    """The location we send them to at the end of the upload."""
-
-    # Get their files.
-    root = "./files/{}".format(uuid)
-    if not os.path.isdir(root):
-        return "Error: UUID not found!{}".format(root)
-
-    files = []
-    for file in glob.glob("{}/*.*".format(root)):
-        fname = file.split(os.sep)[-1]
-        files.append(fname)
-
-    return render_template("files.html",
-        uuid=uuid,
-        files=files,
-    )
-
-
-def ajax_response(status, msg):
-    status_code = "ok" if status else "error"
-    return json.dumps(dict(
-        status=status_code,
-        msg=msg,
-    ))
+        #data = json.dumps(data)
+        if not isinstance(data, dict):
+               data = json.loads(data)
+        result = controller.set_car(data)
+        print(result)
+        #response = requests.post(url="http://localhost:5000/car", params={"data": data})
+        #print(response.content)
+    return render_template('hello.html', form=form)
