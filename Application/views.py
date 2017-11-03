@@ -66,7 +66,7 @@ def show_user_page():
             return result
     return result
 
-@app.route("/hello", methods=["GET", "POST", "PUT"])
+@app.route("/portal", methods=["GET", "POST", "PUT"])
 def hello():
     form = request.form
     if request.method == 'POST':
@@ -91,11 +91,13 @@ def hello():
                 "fuel_type": fuel_type, "description": description}
         print("adding new car:", data)
 
-        #data = json.dumps(data)
         if not isinstance(data, dict):
                data = json.loads(data)
         result = controller.set_car(data)
         print(result)
-        #response = requests.post(url="http://localhost:5000/car", params={"data": data})
-        #print(response.content)
-    return render_template('hello.html', form=form)
+    used_car = controller.get_car(car_type="used_car")
+    rental_car = controller.get_car(car_type="rental_car")
+    data = used_car
+    data.extend(rental_car)
+    print(data, "this is test data")
+    return render_template("portal.html", data=data, form=form)
