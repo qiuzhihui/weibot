@@ -17,40 +17,46 @@ const colStyle = {
 const repairServices = [
   {
     key: 1,
-    name: 'Alignments',
-    description: 'A wheel alignment consists of adjusting the steering and suspension components ' +
-                 'of your vehicle that are connected to your vehicles wheels. It is not an ',
+    name: 'Power Steering Wheel & Axles',
+    description: 'steering wheel pullers, pump, lock, etc. Four-wheel positioning',
     iconClass: 'fa fa-arrows-alt',
+    serviceType: 'Axles'
   },
   {
     key: 2,
-    name: 'Batteries',
+    name: 'Batteries & Air conditioner',
     iconClass: 'fa fa-battery-half',
-    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,',
+    description:  ' Car battery replacement. Add Freon, leaking check',
+    serviceType: 'Batteries'
   },
   {
     key: 3,
     name: 'Brake Services',
     iconClass: 'fa fa-hand-paper-o',
-    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,',
+    description:  'Complete break service and parts: caliber rotor, break pads, master cylinder repair, etc.',
+    serviceType: 'Brake'
   },
   {
     key: 4,
     name: 'Computer Diagnostics',
     iconClass: 'fa fa-desktop',
-    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,',
+    description:  'advanced computer diagnostic tools，electronic systems',
+    serviceType: 'Diagnostics'
   },
   {
     key: 5,
-    name: 'Coolant Fluid Exchange',
+    name: 'Auto body',
     iconClass: 'fa fa-snowflake-o',
-    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,',
+    description:  'Precision auto body repair and unibody straightening. Auto glass repair and replacement',
+    serviceType: 'Autobody'
   },
   {
     key: 6,
-    name: 'Factory Scheduled Maintenance',
+    name: 'Maintenance',
     iconClass: 'fa fa-cog',
-    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,',
+    description:  'manufacturing scheduled services (30000miles, 60000miles,etc). '+
+      'Tune-up, oil change, valve job, change timing-belt, spark plugs,  plug wires, and distributor cap and rotor, air filter, timing-belt',
+    serviceType: 'Maintenance'
   }
 ]
 
@@ -58,7 +64,7 @@ const repairServices = [
 const listColumns = repairServices.map((service) => {
   return (
     <Col xs={6} md={4} style={colStyle} key={ service.key }>
-      <FlipCardGallery serviceName={service.name} description={service.description}/>
+      <FlipCardGallery serviceName={service.name} description={service.description} serviceType = {service.serviceType}/>
     </Col> 
   )
 })

@@ -4,15 +4,24 @@ import PropTypes from 'prop-types';
 
 
 const cardBack = {
-  width: '250',
-  height: '300',
-  textAlign: 'center',
-  borderRadius: '10px',
-  border: '1px solid #ccc',
-  padding: '25px',
-  backgroundColor: '#cef',
+    display: 'table-cell',
+    verticalAlign: 'middle',
 }
 
+const cardFront = {
+  color: 'white',
+  fontWeight: '500',
+  fontFamily: '"Lato","Helvetica Neue",Helvetica,Arial,sans-serif',
+  fontSize: '20px',
+  backgroundColor: 'rgba(0, 0, 0, 0.50)',
+  borderRadius: '10px'
+
+}
+
+const imageStyle = {
+  width: '100%',
+  height: '100%'
+}
 
 export class FlipCardGallery extends React.Component {
   constructor(props) {
@@ -49,15 +58,15 @@ export class FlipCardGallery extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={this.props.serviceType}>
         {/* Default behavior is horizontal flip on hover, or focus */}
-        <FlipCard>
+        <FlipCard> 
           {/* The first child is used as the front of the card */}
-          <div>
-            <div>{this.props.serviceName}</div>
+          <div style={cardFront}>
+            <div >{this.props.serviceName}</div>
           </div>
           {/* The second child is used as the back of the card */}
-          <div>{this.props.description}</div>
+          <div style={cardBack}>{this.props.description}</div>
         </FlipCard>
 
       </div>
@@ -68,12 +77,14 @@ export class FlipCardGallery extends React.Component {
 
 FlipCardGallery.propTypes = {
   serviceName: PropTypes.string,
-  description: PropTypes.string
+  description: PropTypes.string,
+  serviceType: PropTypes.string
 }
 
 FlipCardGallery.defaultProps = {
   serviceName: 'front',
-  description: 'back'
+  description: 'back',
+  serviceType: 'Autobody'
 }
 
 export default FlipCardGallery
