@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Grid, Row, Col } from 'react-bootstrap';
 import Map from "../components/Map.js"
 import Marker from "../components/Marker.js"
 import GoogleApiWrapper from "../utils/GoogleApiComponent"
@@ -33,6 +34,36 @@ import GoogleApiWrapper from "../utils/GoogleApiComponent"
 // })(VisibleMap)
 
 
+const rightPaneStyle = {
+  width: "100%",
+  height: "100%",
+  backgroundColor: "#222",
+  padding: "40px",
+}
+
+const colStyle = {
+  padding: "0",
+}
+
+const tableStyle = {
+  color: "rgb(230, 230, 230)",
+}
+const rightPaneTitleStyle = {
+  fontSize: "18px",
+  color: "rgb(230, 230, 230)",
+  marginBottom: "10px",
+  marginTop: "30px",
+}
+
+const trStyle = {
+  height: "40px",
+}
+
+const tdStyle = {
+  verticalAlign: "top",
+  minWidth: "75px",
+}
+
 export class VisibleMap extends React.Component {
   render() {
     if (!this.props.loaded) {
@@ -45,21 +76,47 @@ export class VisibleMap extends React.Component {
     }
 
     const onMarkClick = () => {
-      alert('Welcome to UBOSTON AUTO SCHOOL');
     }
 
     return (      
       <div style={style}>
-        <Map google={this.props.google}
-             zoom={this.props.mapSettings.zoom}
-             initialCenter={this.props.mapSettings.initialCenter}
-             draggable={this.props.mapSettings.draggable}
-             scrollwheel={this.props.mapSettings.scrollwheel}
-             zoomControl={this.props.mapSettings.zoomControl}
-             disableDefaultUI={this.props.mapSettings.disableDefaultUI}>
-          <Marker position={{lat: this.props.mapSettings.initialCenter.lat, lng: this.props.mapSettings.initialCenter.lng}}
-                  onClick={onMarkClick}/>
-         </Map>
+        <Grid>  
+          <Row>
+            <Col md={8} style={colStyle}>
+              <Map google={this.props.google}
+                   zoom={this.props.mapSettings.zoom}
+                   initialCenter={this.props.mapSettings.initialCenter}
+                   draggable={this.props.mapSettings.draggable}
+                   scrollwheel={this.props.mapSettings.scrollwheel}
+                   zoomControl={this.props.mapSettings.zoomControl}
+                   disableDefaultUI={this.props.mapSettings.disableDefaultUI}>
+                <Marker position={{lat: this.props.mapSettings.initialCenter.lat, lng: this.props.mapSettings.initialCenter.lng}}
+                        onClick={onMarkClick}/>
+              </Map>
+            </Col>
+            <Col md={4} style={colStyle}>
+              <div style={rightPaneStyle}>
+                <div style={rightPaneTitleStyle}>
+                  CONTACT US
+                </div>
+                <table style={tableStyle}>
+                  <tr style={trStyle}>
+                    <td style={tdStyle}>Phone: </td>
+                    <td style={tdStyle}>617-354-2300</td>
+                  </tr>
+                  <tr style={trStyle}>
+                    <td style={tdStyle}>Email: </td>
+                    <td style={tdStyle}>harvardAuto@gmail.com</td>
+                  </tr>
+                  <tr style={trStyle}>
+                    <td style={tdStyle}>Address: </td>
+                    <td style={tdStyle}>247 Prospect St. Cambridge, MA</td>
+                  </tr>
+                </table>
+              </div>
+            </Col>
+           </Row>
+        </Grid>
       </div>
     )
   }
