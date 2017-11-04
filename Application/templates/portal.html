@@ -1,11 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-    <head>
-        <title>Reusable Form Demo</title>
-    </head>
-    <body>
+{% extends "layout.html" %}
 
-<div class="container">
+{% block body %}
   <form  action="" method="post" role="form">
     {{ form.csrf }}
     <div class="form-group">
@@ -89,8 +84,6 @@
 
     </div>
   </form>
-</div>
-
 <div>
 {% for car in data %}
           <label>ID: {{car.id}}</label>
@@ -113,6 +106,5 @@
           {% endfor%}
     <p>
       {% endfor %}
-    </div>
-    </body>>
-</html>
+</div>
+{% endblock %}

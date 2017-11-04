@@ -20,6 +20,7 @@ def create_new_user(data):
     :param data: type dict
     :return: str
     """
+    print(data)
     result = user_operation.create_new_user(db=db, data=data)
     # add some other logic here
     return result

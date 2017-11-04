@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from flask import request, redirect, url_for, session, flash
 import requests
-
+import datetime
 import os
 import json
 import glob
@@ -85,11 +85,12 @@ def portal():
         outside_color = form["outside_color"]
         manual_auto = form["manual_auto"]
         description = form["description"]
-
         data = {"car_type": car_type, "made_year": made_year, "name": name, "brand": brand,
                 "mpg_local": mpg_local, "mpg_highway": mpg_highway, "interior_color": interior_color, "outside_color": outside_color,
                 "price": price, "kbb_price": kbb_price, "millage": millage, "manual_auto": manual_auto,
                 "fuel_type": fuel_type, "description": description}
+        # data = form.__dict__
+
         print("adding new car:", data)
 
         if not isinstance(data, dict):
@@ -122,8 +123,32 @@ def login():
         else:
             error = "Either email or password is wrong, please check!"
     return render_template('login.html', error=error)
+
 @app.route('/logout')
 def logout():
-# remove the username from the session if it's there
     session.pop("email", None)
     return redirect(url_for("login"))
+
+@app.route("/register", methods=["GET", "POST", "PUT"])
+def register():
+    form = request.form
+    if request.method == 'POST':
+        print("Received Post request!")
+
+        user_name = form["username"]
+        print("username")
+        email = form["email"]
+        last_name = form["last_name"]
+        first_name = form["first_name"]
+        phone_numer = form["phone_number"]
+        password = form["password"]
+        data =  {"username": user_name, "email": email, "last_name": last_name, "first_name":first_name, "phone_number": phone_numer, "password": password}
+        data["register_date"] = datetime.datetime.now().date().isoformat()
+        print(data)
+        result = controller.create_new_user(data=data)
+        print(result)
+        if result == "success":
+            flash("Create Account {} success".format(email))
+        elif result == "duplicate":
+            flash("Email {} is already registered!".format(email) )
+    return render_template("register.html", form=form)
