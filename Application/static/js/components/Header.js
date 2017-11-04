@@ -35,9 +35,7 @@ const Header = () => (
     <div className="container" style={header}>
       <ul>
         <li><a href="#">REPAIR</a></li>
-        <li><a href="#">USED CAR</a></li>
-        <li><a href="#">RENTAL</a></li>
-        <li><a href="#">EDUCATON</a></li>
+        <li><a href="#">WHO WE ARE</a></li>
         <li className="pull-right"><a href="#">CONTACT US</a></li>
       </ul>
     </div>

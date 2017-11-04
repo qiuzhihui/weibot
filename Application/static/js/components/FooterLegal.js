@@ -8,7 +8,7 @@ const para = {
 const FooterLegal = () => (
   <div>
     <p style={para}>
-      Boston AutoSchool is bringing trust and simplicity to the used car market. Our goal is to turn what is universally regarded as a burdensome life event into a delightful experience.
+      Harvard Auto Schools is bringing trust and simplicity to the used car market. Our goal is to turn what is universally regarded as a burdensome life event into a delightful experience.
     </p>
     <ul className="list-inline">
        <li>
