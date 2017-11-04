@@ -108,7 +108,11 @@
           <label> Manual/Auto: {{car.manual_auto}}</label>
           <label> Fuel Type: {{car.fuel_type}}</label>
           <label> Description: {{car.description}}</label>
+          {% for image in car.images%}
+              <label>image{{image}}</label>
+          {% endfor%}
     <p>
       {% endfor %}
     </div>
+    </body>>
 </html>

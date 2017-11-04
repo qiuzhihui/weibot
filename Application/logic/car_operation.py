@@ -33,7 +33,13 @@ def get_car_data(db, car_type):
                           brand=row[4], mpg_local=row[5], mpg_highway=row[6], interior_color=row[7],
                           outside_color=row[8], price=row[9], kbb_price=row[10], millage=row[11],
                           manual_auto=row[12], fuel_type=row[13], description=row[14])
+        car_id = car.id
         car = car.__dict__
+
+        image_query = "select image_link from image where car_id={}".format(car_id)
+        images = db.basic_getter(query=image_query)
+        images = [image[0] if len(image) else None for image in images]
+        car["images"] = images
         result.append(car)
 
     if result:

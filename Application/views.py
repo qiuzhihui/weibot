@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from flask import request, redirect, url_for
+from flask import request, redirect, url_for, session, flash
 import requests
 
 import os
@@ -11,6 +11,7 @@ from uuid import uuid4
 # user defined packages
 from . import controller
 app = Flask('weibot', static_folder="Application/static", template_folder="Application/templates")
+app.secret_key = 'b_5#y2L"F4Q8z\n\xec]/'
 
 # index page
 @app.route("/")
@@ -19,7 +20,7 @@ def show_index_page():
 
 
 @app.route("/car", methods = ["GET", "POST", "PUT"])
-def show_rental_page():
+def show_car_page():
     result = "WRONG RESPONSE"
     print(request.method)
     if request.method == "GET":
@@ -67,7 +68,7 @@ def show_user_page():
     return result
 
 @app.route("/portal", methods=["GET", "POST", "PUT"])
-def hello():
+def portal():
     form = request.form
     if request.method == 'POST':
         car_type = form["car_type"]
@@ -101,3 +102,28 @@ def hello():
     data.extend(rental_car)
     print(data, "this is test data")
     return render_template("portal.html", data=data, form=form)
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    error = None
+    if request.method == "POST":
+        email = request.form["email"]
+        password = request.form["password"]
+        data = {"email":email, "password": password}
+        admin = controller.verify_admin(data=data)
+        if admin:
+            flash('Welcome Admin!')
+            session['logged_in'] = True
+            return redirect(url_for("portal"))
+        elif controller.verify_login(data=data):
+            session['logged_in'] = True
+            flash('You were logged in!')
+            return redirect(url_for("show_index_page"))
+        else:
+            error = "Either email or password is wrong, please check!"
+    return render_template('login.html', error=error)
+@app.route('/logout')
+def logout():
+# remove the username from the session if it's there
+    session.pop("email", None)
+    return redirect(url_for("login"))

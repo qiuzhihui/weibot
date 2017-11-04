@@ -25,11 +25,15 @@ def create_new_user(data):
     return result
 
 
+def verify_admin(data):
+    return user_operation.is_admin(db=db, data=data)
+
+
 def verify_login(data):
     """
     verify if password and username matches
     :param data:
-    :return:
+    :return: bool
     """
     result = user_operation.verify_login(db=db, data=data)
     # add some other logic here
