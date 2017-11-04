@@ -38,7 +38,7 @@ const rightPaneStyle = {
   width: "100%",
   height: "100%",
   backgroundColor: "#222",
-  padding: "40px",
+  padding: "35px",
 }
 
 const colStyle = {
@@ -47,12 +47,6 @@ const colStyle = {
 
 const tableStyle = {
   color: "rgb(230, 230, 230)",
-}
-const rightPaneTitleStyle = {
-  fontSize: "18px",
-  color: "rgb(230, 230, 230)",
-  marginBottom: "20px",
-  marginTop: "30px",
 }
 
 const trStyle = {
@@ -96,8 +90,13 @@ export class VisibleMap extends React.Component {
             </Col>
             <Col md={4} style={colStyle}>
               <div style={rightPaneStyle}>
-                <div style={rightPaneTitleStyle}>
-                  CONTACT US
+                <div style={tableStyle}>
+                  <h4>HOURS</h4>
+                  <span>Monday-Sunday 8:00-18:00 </span>
+                </div>
+                <br />
+                <div style={tableStyle}>
+                  <h4>CONTACT US</h4>
                 </div>
                 <table style={tableStyle}>
                   <tr style={trStyle}>
