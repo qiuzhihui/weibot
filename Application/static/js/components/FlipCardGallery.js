@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 
 const cardBack = {
-    display: 'table-cell',
-    verticalAlign: 'middle',
+  display: 'table-cell',
+  verticalAlign: 'middle',
 }
 
 const cardFront = {
@@ -13,7 +13,7 @@ const cardFront = {
   fontWeight: '500',
   fontFamily: '"Lato","Helvetica Neue",Helvetica,Arial,sans-serif',
   fontSize: '20px',
-  backgroundColor: 'rgba(0, 0, 0, 0.50)',
+  backgroundColor: 'rgba(0, 0, 0, 0.80)',
   borderRadius: '10px'
 
 }

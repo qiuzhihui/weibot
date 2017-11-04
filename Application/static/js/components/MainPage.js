@@ -9,8 +9,8 @@ import ImageGallery from'./ImageGallery'
 
 const mapSettings = {
   initialCenter: {
-    lat: 42.349379,
-    lng: -71.049842
+    lat: 42.371543,
+    lng: -71.099883
   },
   zoom: 13,
   draggable: true,

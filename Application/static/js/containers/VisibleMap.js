@@ -57,7 +57,7 @@ export class VisibleMap extends React.Component {
              scrollwheel={this.props.mapSettings.scrollwheel}
              zoomControl={this.props.mapSettings.zoomControl}
              disableDefaultUI={this.props.mapSettings.disableDefaultUI}>
-          <Marker position={{lat: 42.349379, lng: -71.049842}}
+          <Marker position={{lat: this.props.mapSettings.initialCenter.lat, lng: this.props.mapSettings.initialCenter.lng}}
                   onClick={onMarkClick}/>
          </Map>
       </div>
