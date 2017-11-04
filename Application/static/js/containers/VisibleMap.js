@@ -51,12 +51,12 @@ const tableStyle = {
 const rightPaneTitleStyle = {
   fontSize: "18px",
   color: "rgb(230, 230, 230)",
-  marginBottom: "10px",
+  marginBottom: "20px",
   marginTop: "30px",
 }
 
 const trStyle = {
-  height: "40px",
+  height: "30px",
 }
 
 const tdStyle = {
