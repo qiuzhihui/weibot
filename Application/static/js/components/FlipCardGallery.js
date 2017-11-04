@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 const cardBack = {
   display: 'table-cell',
   verticalAlign: 'middle',
+  color: 'white',
 }
 
 const cardFront = {
@@ -14,8 +15,7 @@ const cardFront = {
   fontFamily: '"Lato","Helvetica Neue",Helvetica,Arial,sans-serif',
   fontSize: '20px',
   backgroundColor: 'rgba(0, 0, 0, 0.80)',
-  borderRadius: '10px'
-
+  borderRadius: '10px',
 }
 
 const imageStyle = {
@@ -68,7 +68,6 @@ export class FlipCardGallery extends React.Component {
           {/* The second child is used as the back of the card */}
           <div style={cardBack}>{this.props.description}</div>
         </FlipCard>
-
       </div>
     )
   }

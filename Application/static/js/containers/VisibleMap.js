@@ -92,7 +92,7 @@ export class VisibleMap extends React.Component {
               <div style={rightPaneStyle}>
                 <div style={tableStyle}>
                   <h4>HOURS</h4>
-                  <span>Monday-Sunday 8:00-18:00 </span>
+                  <span>MON-SUN &nbsp; 08:00-18:00 </span>
                 </div>
                 <br />
                 <div style={tableStyle}>
