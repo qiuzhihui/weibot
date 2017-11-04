@@ -76,7 +76,7 @@ export class VisibleMap extends React.Component {
       <div style={style}>
         <Grid>  
           <Row>
-            <Col md={8} style={colStyle}>
+            <Col md={8} xs={12} style={colStyle}>
               <Map google={this.props.google}
                    zoom={this.props.mapSettings.zoom}
                    initialCenter={this.props.mapSettings.initialCenter}
@@ -88,7 +88,7 @@ export class VisibleMap extends React.Component {
                         onClick={onMarkClick}/>
               </Map>
             </Col>
-            <Col md={4} style={colStyle}>
+            <Col md={4} xs={12} style={colStyle}>
               <div style={rightPaneStyle}>
                 <div style={tableStyle}>
                   <h4>HOURS</h4>
@@ -99,18 +99,20 @@ export class VisibleMap extends React.Component {
                   <h4>CONTACT US</h4>
                 </div>
                 <table style={tableStyle}>
-                  <tr style={trStyle}>
-                    <td style={tdStyle}>Phone: </td>
-                    <td style={tdStyle}>617-354-2300</td>
-                  </tr>
-                  <tr style={trStyle}>
-                    <td style={tdStyle}>Email: </td>
-                    <td style={tdStyle}>harvardAuto@gmail.com</td>
-                  </tr>
-                  <tr style={trStyle}>
-                    <td style={tdStyle}>Address: </td>
-                    <td style={tdStyle}>247 Prospect St. Cambridge, MA</td>
-                  </tr>
+                  <tbody>
+                    <tr style={trStyle}>
+                      <td style={tdStyle}>Phone: </td>
+                      <td style={tdStyle}>617-354-2300</td>
+                    </tr>
+                    <tr style={trStyle}>
+                      <td style={tdStyle}>Email: </td>
+                      <td style={tdStyle}>harvardAuto@gmail.com</td>
+                    </tr>
+                    <tr style={trStyle}>
+                      <td style={tdStyle}>Address: </td>
+                      <td style={tdStyle}>247 Prospect St. Cambridge, MA</td>
+                    </tr>
+                  </tbody>
                 </table>
               </div>
             </Col>

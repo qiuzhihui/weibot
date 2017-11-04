@@ -40,7 +40,7 @@ class MainPage extends React.Component {
           <VisibleMap mapSettings={mapSettings}
                       ref={ ref => !this.state.mapRef && this.setState({mapRef: ref})}>
           </VisibleMap>
-          <BrandGrid />
+          <BrandGrid name={"abc"} />
         </div>
       </div>
     )
