@@ -18,13 +18,17 @@ const video = {
     height: 'auto',
     zIndex: '-100',
     transform: 'translateX(-50%) translateY(-50%)',
-    height: '100%',
-    width: '100%',
+    // height: '100%',
+    // width: '100%',
 }
 
-// <video autoPlay loop id="video-background" muted playsInline style={video}>
-//   <source src="https://s7d9.scene7.com/e2/Audiusastaging/Videos/Models/MLP-2018/Q5/2018-Audi-Q5-hero.mp4" type="video/mp4" />
-// </video>
+
+
+
+/*{ <iframe frameBorder="0" style={video}
+  src="https://youtube.com/embed/z2zHhOTaWqA?rel=0&autoplay=1&controls=0&showinfo=0&autohide=1&disablekb=1&loop=1">
+</iframe> }*/
+
 class Video extends React.Component {
   constructor() {
     super();
@@ -37,9 +41,9 @@ class Video extends React.Component {
       <div>
         <VideoOverlay />
         <div style={VideoContainer}>
-            <iframe frameBorder="0" style={video}
-              src="https://youtube.com/embed/z2zHhOTaWqA?rel=0&autoplay=1&controls=0&showinfo=0&autohide=1&disablekb=1&loop=1">
-            </iframe>
+          <video autoPlay loop id="video-background" muted playsInline style={video}>
+           <source src="static/video/heroVideo.mp4" type="video/mp4" />
+        </video>
         </div>
       </div>
     )
