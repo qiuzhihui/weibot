@@ -10,16 +10,17 @@ const VideoContainer = {
 
 const video = {
     position: 'absolute',
-    top: '50%',
-    left: '50%',
+    top: 0,
+    left: 0,
     minWidth: '100%',
     minHeight: '100%',
     width: 'auto',
     height: 'auto',
     zIndex: '-100',
-    transform: 'translateX(-50%) translateY(-50%)',
-    height: '100%',
-    width: '100%',
+    // transform: 'translateX(-50%) translateY(-50%)',
+    // height: '100%',
+    // width: '100%',
+    overflow: 'hidden',
 }
 
 // <video autoPlay loop id="video-background" muted playsInline style={video}>
