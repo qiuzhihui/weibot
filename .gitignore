@@ -8,3 +8,4 @@ node_modules
 .idea/*
 *.pyc
 tmp
+Application/npm-debug.log
