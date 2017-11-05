@@ -1,47 +1,46 @@
 import React from 'react'
-// import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 const header = {
   marginTop: '0px'
 }
 
-const Header = () => (
-  // <div style={{'backgroundColor':'black'}}>
-  //   <Navbar inverse collapseOnSelect>
-  //     <Navbar.Header>
-  //       <Navbar.Brand>
-  //         <div style={{'fontSize': 22, 'font':'roboto', 'color':'white'}}>
-  //           <a href="#" style={{'color':'white', 'textDecoration':'none'}}>Uboston Auto School</a>
-  //         </div>
-  //       </Navbar.Brand>
-  //       <Navbar.Toggle />
-  //     </Navbar.Header>
-  //     <Navbar.Collapse>
-  //       <Nav>
-  //         <NavItem eventKey={1} href="#">Repair222</NavItem>
-  //         <NavItem eventKey={2} href="#">Used Car</NavItem>
-  //         <NavItem eventKey={2} href="#">Rental</NavItem>
-  //         <NavItem eventKey={2} href="#">Education</NavItem>
-  //       </Nav>
-  //       <Nav pullRight>
-  //         <NavItem eventKey={1} href="#">Contact</NavItem>
-  //         <NavItem eventKey={2} href="#">三友车行</NavItem>
-  //       </Nav>
-  //     </Navbar.Collapse>
-  //   </Navbar>
-  // </div>
+export class Header extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  <nav className="nav-bar">
-    <div className="container" style={header}>
-      <ul>
-        <li><a href="#">REPAIR</a></li>
-        <li><a href="#">USED CAR</a></li>
-        <li><a href="#">RENTAL</a></li>
-        <li><a href="#">EDUCATON</a></li>
-        <li className="pull-right"><a href="#">CONTACT US</a></li>
-      </ul>
-    </div>
-  </nav>
+  scrollToRepair() {
+    this.props.scrollRef.repairRef.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
 
-)
+  scrollToCarousal() {
+    this.props.scrollRef.carousalRef.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+
+  scrollToMap() {
+    this.props.scrollRef.mapRef.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+
+  render() {
+    return (
+      <nav className="nav-bar">
+        <div className="container" style={header}>
+          <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a onClick={this.scrollToRepair.bind(this)}>REPAIR</a></li>
+            <li><a onClick={this.scrollToCarousal.bind(this)}>WHO WE ARE</a></li>
+            <li className="pull-right"><a onClick={this.scrollToMap.bind(this)}>CONTACT US</a></li>
+          </ul>
+        </div>
+      </nav>
+    )
+  }
+}
+
+Header.propTypes = {
+  scrollRef: PropTypes.object,
+}
+
+
 export default Header

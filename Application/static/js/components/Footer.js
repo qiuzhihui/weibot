@@ -28,7 +28,7 @@ const AppFooter = () => (
     <Grid style={style}>
       <Row>
         <Col xs={12} md={12}>
-          <h3 style={brandLabal}> Boston AutoSchool
+          <h3 style={brandLabal}> Harvard Auto Schools
           </h3>
         </Col>
       </Row>
@@ -38,7 +38,6 @@ const AppFooter = () => (
         </Col>
         <Col xs={12} md={6} style={section}>
           <FooterSocialIcon />
-          <FooterContact />
         </Col>
       </Row>
     </Grid>

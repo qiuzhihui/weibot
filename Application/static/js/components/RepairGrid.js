@@ -1,133 +1,99 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {Grid, Row, Col} from 'react-bootstrap';
+import FlipCardGallery from './FlipCardGallery'
 
 const containerStyle = {
-  width: "100%"
+  width: "100%",
+  marginBottom: "30px"
 } 
 
 const rowStyle = {
 }
 
 const colStyle = {
-  height: '400px'
+  height: '350px'
 }
 
 const repairServices = [
   {
     key: 1,
-    name: 'Alignments',
-    description: 'A wheel alignment consists of adjusting the steering and suspension components ' +
-                 'of your vehicle that are connected to your vehicles wheels. It is not an ' + 
-                 'adjustment to the tires or wheels themselves. To maximize tread life and ensure ' +
-                 'that your vehicle tracks straight, a proper alignment is necessary for even tread ' +
-                 'wear and precise steering. A misaligned vehicle could also affect your gas mileage. ' +
-                 'With our state-of-the-art computerized alignment machines we will also provide you ' +
-                 'with a computer printout showing the adjustments that were made to your vehicle.',
+    name: 'Power Steering Wheel & Axles',
+    description: 'steering wheel pullers, pump, lock, etc. Four-wheel positioning',
     iconClass: 'fa fa-arrows-alt',
+    serviceType: 'Axles'
   },
   {
     key: 2,
-    name: 'Batteries',
+    name: 'Batteries & Air conditioner',
     iconClass: 'fa fa-battery-half',
-    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,'+
-                  'our certified technicians will thoroughly inspect the system and provide a written' + 
-                  'estimate for any repairs needed. The causes of A/C failure are many; from as simple' +
-                  'as a blown fuse to as complicated as a seized A/C compressor. We will diagnose the' +
-                  'problem and get you back on the road and staying cool in no time!' +                  
-                  'Our technicians use quality parts and are experienced with all types of vehicles.',
+    description:  ' Car battery replacement. Add Freon, leaking check',
+    serviceType: 'Batteries'
   },
   {
     key: 3,
     name: 'Brake Services',
     iconClass: 'fa fa-hand-paper-o',
-    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,'+
-                  'our certified technicians will thoroughly inspect the system and provide a written' + 
-                  'estimate for any repairs needed. The causes of A/C failure are many; from as simple' +
-                  'as a blown fuse to as complicated as a seized A/C compressor. We will diagnose the' +
-                  'problem and get you back on the road and staying cool in no time!' +                  
-                  'Our technicians use quality parts and are experienced with all types of vehicles.',
+    description:  'Complete break service and parts: caliber rotor, break pads, master cylinder repair, etc.',
+    serviceType: 'Brake'
   },
   {
     key: 4,
     name: 'Computer Diagnostics',
     iconClass: 'fa fa-desktop',
-    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,'+
-                  'our certified technicians will thoroughly inspect the system and provide a written' + 
-                  'estimate for any repairs needed. The causes of A/C failure are many; from as simple' +
-                  'as a blown fuse to as complicated as a seized A/C compressor. We will diagnose the' +
-                  'problem and get you back on the road and staying cool in no time!' +                  
-                  'Our technicians use quality parts and are experienced with all types of vehicles.',
+    description:  'advanced computer diagnostic tools，electronic systems',
+    serviceType: 'Diagnostics'
   },
   {
     key: 5,
-    name: 'Coolant Fluid Exchange',
+    name: 'Auto body',
     iconClass: 'fa fa-snowflake-o',
-    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,'+
-                  'our certified technicians will thoroughly inspect the system and provide a written' + 
-                  'estimate for any repairs needed. The causes of A/C failure are many; from as simple' +
-                  'as a blown fuse to as complicated as a seized A/C compressor. We will diagnose the' +
-                  'problem and get you back on the road and staying cool in no time!' +                  
-                  'Our technicians use quality parts and are experienced with all types of vehicles.',
+    description:  'Precision auto body repair and unibody straightening. Auto glass repair and replacement',
+    serviceType: 'Autobody'
   },
   {
     key: 6,
-    name: 'Factory Scheduled Maintenance',
+    name: 'Maintenance',
     iconClass: 'fa fa-cog',
-    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,'+
-                  'our certified technicians will thoroughly inspect the system and provide a written' + 
-                  'estimate for any repairs needed. The causes of A/C failure are many; from as simple' +
-                  'as a blown fuse to as complicated as a seized A/C compressor. We will diagnose the' +
-                  'problem and get you back on the road and staying cool in no time!' +                  
-                  'Our technicians use quality parts and are experienced with all types of vehicles.',
-  },
-  {
-    key: 7,
-    name: 'Headlight Restoration',
-    iconClass: 'fa fa-car',
-    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,'+
-                  'our certified technicians will thoroughly inspect the system and provide a written' + 
-                  'estimate for any repairs needed. The causes of A/C failure are many; from as simple' +
-                  'as a blown fuse to as complicated as a seized A/C compressor. We will diagnose the' +
-                  'problem and get you back on the road and staying cool in no time!' +                  
-                  'Our technicians use quality parts and are experienced with all types of vehicles.',
-  },
-  {
-    key: 8,
-    name: 'Oil Change Services',
-    iconClass: 'fa fa-cogs',
-    description:  'If the A/C system stops working completely or begins to blow warmer air than usual,'+
-                  'our certified technicians will thoroughly inspect the system and provide a written' + 
-                  'estimate for any repairs needed. The causes of A/C failure are many; from as simple' +
-                  'as a blown fuse to as complicated as a seized A/C compressor. We will diagnose the' +
-                  'problem and get you back on the road and staying cool in no time!' +                  
-                  'Our technicians use quality parts and are experienced with all types of vehicles.',
-  },
+    description:  'manufacturing scheduled services (30000miles, 60000miles,etc). '+
+      'Tune-up, oil change, valve job, change timing-belt, spark plugs,  plug wires, and distributor cap and rotor, air filter, timing-belt',
+    serviceType: 'Maintenance'
+  }
 ]
+
 
 const listColumns = repairServices.map((service) => {
   return (
-    <Col xs={6} md={3} style={colStyle} key={ service.key }>
-      <h2 className="row">
-        <div className="col-md-2" style={{ marginTop:'5px' }}>
-          <i className={ service.iconClass}></i> 
-        </div>
-        <div className="col-md-10">
-          <span>{ service.name }</span>
-        </div>
-      </h2>
-      <span> { service.description } </span>
+    <Col xs={6} md={4} style={colStyle} key={ service.key }>
+      <FlipCardGallery serviceName={service.name} description={service.description} serviceType = {service.serviceType}/>
     </Col> 
   )
 })
 
-const RepairGrid = () => (
-  <div style={containerStyle}>
-    <Grid >
-      <Row className="show-grid" style={rowStyle}>
-        { listColumns }
-      </Row>
-    </Grid>
-  </div>
-)
+export class RepairGrid extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.passRefToState(this.refs.repairRef);
+  }
+
+  render() {
+    return (
+      <div style={containerStyle} ref="repairRef">
+        <Grid >
+          <Row className="show-grid" style={rowStyle}>
+            { listColumns }
+          </Row>
+        </Grid>
+      </div>
+    )
+  }
+}
+
+RepairGrid.propTypes = {
+  passRefToState: PropTypes.func.isRequired
+}
 
 export default RepairGrid

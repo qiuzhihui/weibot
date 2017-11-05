@@ -1,0 +1,47 @@
+
+.ReactFlipCard {
+  margin: 25px;
+  text-align: center;
+}
+.ReactFlipCard,
+.ReactFlipCard__Front,
+.ReactFlipCard__Back {
+  box-sizing: border-box;
+  width: 250px;
+  height: 300px;
+}
+.ReactFlipCard__Front,
+.ReactFlipCard__Back {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 25px;
+  display: table;
+}
+.ReactFlipCard__Front {
+  background-color: #eee;
+  background-position: center;
+  background-size: cover;
+}
+.ReactFlipCard__Back {
+  background-color: #444;
+}
+
+
+.Axles .ReactFlipCard__Front {
+  background-image: url("../../static/img/wheel.jpg")
+}
+.Batteries .ReactFlipCard__Front {
+  background-image: url("../../static/img/battery.jpg")
+}
+.Brake .ReactFlipCard__Front {
+  background-image: url("../../static/img/car-brakes.jpg")
+}
+.Diagnostics .ReactFlipCard__Front {
+  background-image: url("../../static/img/diagnostics.jpg")
+}
+.Autobody .ReactFlipCard__Front {
+  background-image: url("../../static/img/autobody.jpg")
+}
+.Maintenance .ReactFlipCard__Front {
+  background-image: url("../../static/img/maintenance.jpg")
+}
