@@ -59,6 +59,10 @@ const tdStyle = {
 }
 
 export class VisibleMap extends React.Component {
+  componentDidMount() {
+    // this.props.passRefToState(this.refs.mapRef);
+  }
+
   render() {
     if (!this.props.loaded) {
       return <div>Loading...</div>
@@ -73,7 +77,7 @@ export class VisibleMap extends React.Component {
     }
 
     return (      
-      <div style={style}>
+      <div style={style} ref="mapRef">
         <Grid>  
           <Row>
             <Col md={8} xs={12} style={colStyle}>
@@ -122,6 +126,24 @@ export class VisibleMap extends React.Component {
     )
   }
 }
+
+// const mapStateToProps = state => {
+//   console.log(state)
+//   return {}
+// }
+
+// const mapDispatchToProps = dispatch => {
+//   return  {
+//     passRefToState: (ref) => {
+//       dispatch(setRef(ref, null))
+//     }
+//   }
+// }
+
+// const ConnectedVisibleMap = connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(VisibleMap)
 
 export default GoogleApiWrapper({
   apiKey: "AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo"

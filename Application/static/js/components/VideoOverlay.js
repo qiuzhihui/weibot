@@ -29,11 +29,6 @@ class VideoOverlay extends React.Component {
     this.state = {};
   }
 
-  scroll(ref) {
-    console.log(ref);
-    $('html, body').animate({scrollTop: findDOMNode(ref).getBoundingClientRect().top}, 100);
-  }
-
   render() {
     return (
       <div className='overlay' style={style}>
@@ -50,20 +45,20 @@ class VideoOverlay extends React.Component {
           <div style={styleIcon}>
           <Row>
             <Col xs={4} md={4}>
-              <div onClick={ this.scroll.bind(this, this.props.mainPageRefs.mainRef) }>
+              <div>
                 <Image className="VideoOverlayIcon" src="static/img/repair.png" circle />
                 <p> repair </p>
               </div>  
             </Col>
             <Col xs={4} md={4}>
-              <div onClick={ this.scroll.bind(this, this.props.mainPageRefs.rentalCarRef) }>
+              <div>
                 <Image className="VideoOverlayIcon" src="static/img/rent.png" circle />
                 <p> Rent </p>
               </div>
             </Col>
             <Col xs={4} md={4}>
-              <div onClick={ this.scroll.bind(this, this.props.mainPageRefs.mapRef) }>
-                <Image className="VideoOverlayIcon" src="static/img/used.png" circle ref="1"/>
+              <div>
+                <Image className="VideoOverlayIcon" src="static/img/used.png" circle />
                 <p> Sell </p>
               </div>
             </Col>

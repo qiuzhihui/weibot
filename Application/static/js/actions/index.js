@@ -29,9 +29,10 @@ export const setOffset = (index, direction) => {
   }
 }
 
-export const setRef = (ref) => {
+export const setRef = (repairRef, carousalRef) => {
   return {
     type: 'SET_REF',
-    ref
+    repairRef,
+    carousalRef,
   }
 }

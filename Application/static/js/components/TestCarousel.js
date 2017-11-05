@@ -10,12 +10,12 @@ export class TestCarousel extends React.Component {
 
   componentDidMount() {
     console.log(this.refs.carousel)
-    this.props.passRefToState(this.refs.carousel)
+    this.props.passRefToState(this.refs.carouselRef)
   }
 
   render() {
     return (
-      <div ref="carousel" style={{clear:"both"}}>
+      <div ref="carouselRef" style={{clear:"both"}}>
         <Carousel activeIndex={this.props.offset.index} direction={this.props.offset.direction} onSelect={this.props.handleSelect}>
             <Carousel.Item>
               <img width={2000} height={401} alt="900x500" src="static/img/carousel1.jpg"/>

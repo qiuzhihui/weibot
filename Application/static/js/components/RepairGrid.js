@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {Grid, Row, Col} from 'react-bootstrap';
 import FlipCardGallery from './FlipCardGallery'
 
@@ -69,14 +70,30 @@ const listColumns = repairServices.map((service) => {
   )
 })
 
-const RepairGrid = () => (
-  <div style={containerStyle}>
-    <Grid >
-      <Row className="show-grid" style={rowStyle}>
-        { listColumns }
-      </Row>
-    </Grid>
-  </div>
-)
+export class RepairGrid extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.passRefToState(this.refs.repairRef);
+  }
+
+  render() {
+    return (
+      <div style={containerStyle} ref="repairRef">
+        <Grid >
+          <Row className="show-grid" style={rowStyle}>
+            { listColumns }
+          </Row>
+        </Grid>
+      </div>
+    )
+  }
+}
+
+RepairGrid.propTypes = {
+  passRefToState: PropTypes.func.isRequired
+}
 
 export default RepairGrid
