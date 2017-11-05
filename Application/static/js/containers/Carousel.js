@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(setOffset(selectedIndex, e.direction))
     },
     passRefToState: (ref) => {
-      dispatch(setRef(null, ref))
+      dispatch(setRef(null, ref, null))
     }
   }
 }

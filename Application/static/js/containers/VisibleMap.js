@@ -4,6 +4,7 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import Map from "../components/Map.js"
 import Marker from "../components/Marker.js"
 import GoogleApiWrapper from "../utils/GoogleApiComponent"
+import { setRef } from '../actions'
 
 // const mapStateToProps = (state, ownProps) => {
 //   return {
@@ -58,9 +59,9 @@ const tdStyle = {
   minWidth: "75px",
 }
 
-export class VisibleMap extends React.Component {
-  componentDidMount() {
-    // this.props.passRefToState(this.refs.mapRef);
+export class MapContainer extends React.Component {
+  componentDidUpdate() {
+    this.props.passRefToState(this.refs.mapRef);
   }
 
   render() {
@@ -100,7 +101,7 @@ export class VisibleMap extends React.Component {
                 </div>
                 <br />
                 <div style={tableStyle}>
-                  <h4>CONTACT US</h4>
+                  <h4>CONTACT US (Prospect Auto)</h4>
                 </div>
                 <table style={tableStyle}>
                   <tbody>
@@ -127,23 +128,22 @@ export class VisibleMap extends React.Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   console.log(state)
-//   return {}
-// }
+const mapStateToProps = state => {
+  return {}
+}
 
-// const mapDispatchToProps = dispatch => {
-//   return  {
-//     passRefToState: (ref) => {
-//       dispatch(setRef(ref, null))
-//     }
-//   }
-// }
+const mapDispatchToProps = dispatch => {
+  return  {
+    passRefToState: (ref) => {
+      dispatch(setRef(null, null, ref))
+    }
+  }
+}
 
-// const ConnectedVisibleMap = connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(VisibleMap)
+const VisibleMap = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MapContainer)
 
 export default GoogleApiWrapper({
   apiKey: "AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo"

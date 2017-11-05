@@ -4,6 +4,7 @@ const scrollRef = (state = {ref: null}, action) => {
             return {
                 repairRef: action.repairRef || state.repairRef,
                 carousalRef: action.carousalRef || state.carousalRef,
+                mapRef: action.mapRef || state.mapRef,
             }
         default:
         return state

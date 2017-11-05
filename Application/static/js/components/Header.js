@@ -11,13 +11,15 @@ export class Header extends React.Component {
   }
 
   scrollToRepair() {
-    console.log(this.props.scrollRef);
     this.props.scrollRef.repairRef.scrollIntoView({behavior: 'smooth', block: 'start'});
   }
 
   scrollToCarousal() {
-    console.log(this.props.scrollRef);
     this.props.scrollRef.carousalRef.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+
+  scrollToMap() {
+    this.props.scrollRef.mapRef.scrollIntoView({behavior: 'smooth', block: 'start'});
   }
 
   render() {
@@ -28,7 +30,7 @@ export class Header extends React.Component {
             <li><a href="#">HOME</a></li>
             <li><a onClick={this.scrollToRepair.bind(this)}>REPAIR</a></li>
             <li><a onClick={this.scrollToCarousal.bind(this)}>WHO WE ARE</a></li>
-            <li className="pull-right"><a href="#">CONTACT US</a></li>
+            <li className="pull-right"><a onClick={this.scrollToMap.bind(this)}>CONTACT US</a></li>
           </ul>
         </div>
       </nav>

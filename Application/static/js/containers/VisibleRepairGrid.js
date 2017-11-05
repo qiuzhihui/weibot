@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return  {
     passRefToState: (ref) => {
-      dispatch(setRef(ref, null))
+      dispatch(setRef(ref, null, null))
     }
   }
 }
@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => {
 
 const VisibleRepairGrid = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(RepairGrid)
 
 export default VisibleRepairGrid
