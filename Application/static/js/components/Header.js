@@ -14,22 +14,22 @@ export class Header extends React.Component {
 
   scrollToRepair() {
     window.scroll({
-      top: this.props.scrollRef.repairRef.offsetTop - scrollOffset, 
-      behavior: 'smooth' 
+      top: this.props.scrollRef.repairRef.offsetTop - scrollOffset,
+      behavior: 'smooth'
     });
   }
 
   scrollToCarousal() {
     window.scroll({
-      top: this.props.scrollRef.carousalRef.offsetTop - scrollOffset, 
-      behavior: 'smooth' 
+      top: this.props.scrollRef.carousalRef.offsetTop - scrollOffset,
+      behavior: 'smooth'
     });
   }
 
   scrollToMap() {
     window.scroll({
-      top: this.props.scrollRef.mapRef.offsetTop - scrollOffset, 
-      behavior: 'smooth' 
+      top: this.props.scrollRef.mapRef.offsetTop - scrollOffset,
+      behavior: 'smooth'
     });
   }
 

@@ -23,6 +23,8 @@ const styleIcon = {
   filter: 'brightness(0) invert(1)'
 }
 
+const scrollOffset = 50
+
 export class VideoOverlay extends React.Component {
   constructor(props) {
     super(props);
@@ -30,7 +32,10 @@ export class VideoOverlay extends React.Component {
   }
 
   scrollToRepair() {
-    this.props.scrollRef.repairRef.scrollIntoView({behavior: 'smooth', block: 'start'});
+    window.scroll({
+      top: this.props.scrollRef.repairRef.offsetTop - scrollOffset,
+      behavior: 'smooth'
+    });
   }
 
 
