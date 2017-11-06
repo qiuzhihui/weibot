@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <form  action="" method="post" role="form">
+  <form  action="" method="post" role="form" enctype = "multipart/form-data">
     {{ form.csrf }}
     <div class="form-group">
       <strong>Car Type:</strong><br>
@@ -69,18 +69,9 @@
   <strong>Descriptions:</strong><br>
     <textarea rows="4" cols="40" name="description">enter descriptions.</textarea><p>
     <strong>Files:</strong><br>
-    Select files OR drag them into the box below.
-    <input id="file-picker" type="file" name="file" accept="image/*" multiple><p>
+    <input id="file-picker" type="file" name="file" accept="image/*" multiple=""><p>
 
-    <fieldset id="progress" style="display: none">
-        <legend>Files Progress</legend>
-
-        <div class="progress-trough">
-            <div id="progress-bar" class="progress-bar">0%</div>
-        </div>
-    </fieldset><p>
-
-    <input type="submit" value="Add" id="upload-button">
+    <input type="submit" value="Add Car" id="upload-button">
 
     </div>
   </form>

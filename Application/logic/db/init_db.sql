@@ -99,6 +99,6 @@ COMMIT;
 
 START TRANSACTION;
 INSERT INTO image (image_link)
-       VALUES ("https://s3.us-east-2.amazonaws.com/ubostonautoschool/RentalCar/wanhao.jpg") where car_id = 1;
+       VALUES ("https://s3.us-east-2.amazonaws.com/ubostonautoschool/RentalCar/Yema/yema.jpg") where car_id = 1;
 
 COMMIT;

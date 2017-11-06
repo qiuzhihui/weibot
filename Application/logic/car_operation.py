@@ -27,7 +27,7 @@ def get_car_data(db, car_type):
 
     rows = db.basic_getter(query=query)
     for index, row in enumerate(rows):
-        print(row)
+        #print(row)
         row = [str(x) for x in row]
         car = objects.Car(id=row[0], car_type=row[1], made_year=row[2], name=row[3],
                           brand=row[4], mpg_local=row[5], mpg_highway=row[6], interior_color=row[7],
@@ -79,7 +79,7 @@ def set_car_data(db, data, add_new=True):
 
     print(query)
     result = db.basic_setter(query=query)
-    print(result)
+    #print(result)
     return result
 
 def get_max_car_id(db):

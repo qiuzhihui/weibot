@@ -7,6 +7,7 @@ import json
 import glob
 import pdb
 from uuid import uuid4
+import boto3
 
 # user defined packages
 from . import controller
@@ -85,23 +86,33 @@ def portal():
         outside_color = form["outside_color"]
         manual_auto = form["manual_auto"]
         description = form["description"]
+
         data = {"car_type": car_type, "made_year": made_year, "name": name, "brand": brand,
                 "mpg_local": mpg_local, "mpg_highway": mpg_highway, "interior_color": interior_color, "outside_color": outside_color,
                 "price": price, "kbb_price": kbb_price, "millage": millage, "manual_auto": manual_auto,
                 "fuel_type": fuel_type, "description": description}
-        # data = form.__dict__
-
         print("adding new car:", data)
 
         if not isinstance(data, dict):
                data = json.loads(data)
         result = controller.set_car(data)
-        print(result)
+
+        files = request.files["file"]
+        print(files.read())
+        files = files.read()
+        import pdb
+        pdb.set_trace()
+        for file in files:
+            print(file.filename)
+            data = file.read()
+            s3 = boto3.resource("s3")
+            result = s3.Bucket("testuboston").put_object(Key="do11.jpg", Body=data,  ACL="public-read", ContentType="image")
+            print(result)
     used_car = controller.get_car(car_type="used_car")
     rental_car = controller.get_car(car_type="rental_car")
     data = used_car
     data.extend(rental_car)
-    print(data, "this is test data")
+    #print(data, "this is test data")
     return render_template("portal.html", data=data, form=form)
 
 @app.route("/login", methods=["GET", "POST"])

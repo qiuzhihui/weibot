@@ -68,9 +68,7 @@ def upload_photo_test():
     path = "/Users/winston/Desktop/w.jpg"
     data = open(path, "rb")
 
-    result = s3.Bucket("ubostonautoschool").put_object(Key="RentalCar/do2.jpg", Body=data)
-    #print(response)
-    result.put(ACL='public-read')
+    result = s3.Bucket("testuboston").put_object(Key="do1.jpg", Body=data,  ACL="public-read", ContentType="image")
     print(result)
 
 if __name__ == '__main__':
@@ -87,5 +85,5 @@ if __name__ == '__main__':
     #     test_car_service(port=port, machine=machine)
     # if service == "user":
     #     test_user_service(port=port, machine=machine)
-    #upload_photo_test()
-    test_user_service()
+    upload_photo_test()
+    # test_user_service()
