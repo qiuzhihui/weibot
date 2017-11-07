@@ -7,14 +7,20 @@ from .logic import image_operation
 from .logic import connect_db
 db = connect_db.ConnectDB()
 s3 = boto3.resource("s3")
-from uuid import uuid4
 
-def upload_image(filename, image_binary):
-    file_type = filename.split(".")[-1]
-    filename = ".".join([str(uuid4()), file_type])
 
-    s3.Bucket("testuboston").put_object(Key=filename, Body=image_binary,  ACL="public-read", ContentType="image")
-    #return result
+def upload_image(filename, image_binary, car_id=None):
+    """
+
+    :param filename: type str filename
+    :param image_binary: type binary buffer image content
+    :param car_id: type int car id
+    :return: bool
+    """
+    if car_id is None:
+        car_id = car_operation.get_max_car_id(db=db)
+    result = image_operation.upload_image_binary(s3=s3, db=db, car_id=car_id, filename=filename, image_binary=image_binary)
+    return result
 
 
 def create_new_user(data):

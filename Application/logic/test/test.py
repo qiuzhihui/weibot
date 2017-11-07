@@ -60,30 +60,17 @@ def test_user_service(port=5000, machine="localhost", email="zhihui.qiu.tufts@gm
     else:
         print("!!! reset failed !!!")
 
-
-def upload_photo_test():
-    s3 = boto3.resource("s3")
-    for bucket in s3.buckets.all():
-        print(bucket.name)
-    path = "/Users/winston/Desktop/w.jpg"
-    data = open(path, "rb")
-
-    result = s3.Bucket("testuboston").put_object(Key="do1.jpg", Body=data,  ACL="public-read", ContentType="image")
-    print(result)
-
 if __name__ == '__main__':
-    # parser = argparse.ArgumentParser(description="test argparser")
-    # parser.add_argument("-p", "--port", dest="port", default=5000)
-    # parser.add_argument("-m", "--machine", dest="machine", default="localhost")
-    # parser.add_argument("-s", "--service", dest="service", default="car")
-    #
-    # args = parser.parse_args()
-    # port = args.port
-    # service = args.service
-    # machine = args.machine
-    # if service == "car":
-    #     test_car_service(port=port, machine=machine)
-    # if service == "user":
-    #     test_user_service(port=port, machine=machine)
-    upload_photo_test()
-    # test_user_service()
+    parser = argparse.ArgumentParser(description="test argparser")
+    parser.add_argument("-p", "--port", dest="port", default=5000)
+    parser.add_argument("-m", "--machine", dest="machine", default="localhost")
+    parser.add_argument("-s", "--service", dest="service", default="car")
+
+    args = parser.parse_args()
+    port = args.port
+    service = args.service
+    machine = args.machine
+    if service == "car":
+        test_car_service(port=port, machine=machine)
+    if service == "user":
+        test_user_service(port=port, machine=machine)

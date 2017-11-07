@@ -1,28 +1,24 @@
 import json
 import boto3
-
+from uuid import uuid4
 # user defined packages
 from .import objects
 
 
-def upload_image_binary(s3, file_path, image_binary):
+def upload_image_binary(s3, filename, image_binary, car_id, db):
     """
     upload data to s3
     :param data:
     :return:
     """
-    # there should have cart_ype in data
-    # car_type = data.get("car_type")
-    # if car_type == "rental_car":
-    #     prefix = "RentalCar"
-    # if car_type == "used_car":
-    prefix = "UsedCar"
-    # images = data.get("images")
-    # for image in images:
-    #path = "/".join([prefix, file])
-    result = s3.Bucket("ubostonautoschool").put_object(Key="RentalCar/{}".format(file_path), Body=image_binary)
+    file_type = filename.split(".")[-1]
+    filename = ".".join([str(uuid4()), file_type])
+    bucket_name = "testuboston"
+    s3.Bucket(bucket_name).put_object(Key=filename, Body=image_binary,  ACL="public-read", ContentType="image")
+    link = "https://s3.us-east-2.amazonaws.com/" + bucket_name + "/" + filename
+    data = {"image_link": link, "car_id": int(car_id)}
+    result = set_image_data(db=db, data=data)
     return result
-
 
 def get_image_data(db, car_id):
     """

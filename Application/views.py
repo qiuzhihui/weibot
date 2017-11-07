@@ -98,35 +98,13 @@ def portal():
                data = json.loads(data)
         result = controller.set_car(data)
 
-        files = request.files["file"]
-#        filename = files.filename
+        for file in request.files.getlist("file"):
+            controller.upload_image(filename=file.filename, image_binary=file.read())
 
-        #content = files.read()
-        #print(filename)
-        #print(content)
-        #with open("filename.jpg", "wb") as f:
-        #    f.write(content)
-        # for file in files:
-        #     if file is not None:
-        #         content = file.read()
-        #         print(content)
-        #files.save("w.jpg")
-        #filename = files.filename
-        #files.save(filename)
-
-        import pdb
-        pdb.set_trace()
-        for file in files:
-            print(file.filename)
-            data = file.read()
-            s3 = boto3.resource("s3")
-            result = s3.Bucket("testuboston").put_object(Key="do11.jpg", Body=data,  ACL="public-read", ContentType="image")
-            print(result)
     used_car = controller.get_car(car_type="used_car")
     rental_car = controller.get_car(car_type="rental_car")
     data = used_car
     data.extend(rental_car)
-    #print(data, "this is test data")
     return render_template("portal.html", data=data, form=form)
 
 @app.route("/login", methods=["GET", "POST"])
@@ -177,17 +155,3 @@ def register():
         elif result == "duplicate":
             flash("Email {} is already registered!".format(email) )
     return render_template("register.html", form=form)
-@app.route("/test", methods=["GET", "POST", "PUT"])
-def test():
-    form = request.form
-    if request.method == "POST":
-        for upload in request.files.getlist("file"):
-        #file = request.files["file"]
-            print(upload)
-        #filename = file.filename
-        #with open(filename, "wb") as f:
-        #    f.write(file.read())
-        #s3 = boto3.resource("s3")
-        #result = s3.Bucket("testuboston").put_object(Key=filename, Body=file.read(),  ACL="public-read", ContentType="image")
-
-    return render_template("test.html", form=form)
