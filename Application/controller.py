@@ -7,11 +7,14 @@ from .logic import image_operation
 from .logic import connect_db
 db = connect_db.ConnectDB()
 s3 = boto3.resource("s3")
+from uuid import uuid4
 
+def upload_image(filename, image_binary):
+    file_type = filename.split(".")[-1]
+    filename = ".".join([str(uuid4()), file_type])
 
-def upload_image(file_path, image_binary):
-    result = image_operation.upload_image_binary(s3=s3, file_path=file_path, image_binary=image_binary)
-    return result
+    s3.Bucket("testuboston").put_object(Key=filename, Body=image_binary,  ACL="public-read", ContentType="image")
+    #return result
 
 
 def create_new_user(data):

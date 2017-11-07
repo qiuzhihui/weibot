@@ -8,6 +8,7 @@ import glob
 import pdb
 from uuid import uuid4
 import boto3
+from io import TextIOWrapper
 
 # user defined packages
 from . import controller
@@ -98,8 +99,21 @@ def portal():
         result = controller.set_car(data)
 
         files = request.files["file"]
-        print(files.read())
-        files = files.read()
+#        filename = files.filename
+
+        #content = files.read()
+        #print(filename)
+        #print(content)
+        #with open("filename.jpg", "wb") as f:
+        #    f.write(content)
+        # for file in files:
+        #     if file is not None:
+        #         content = file.read()
+        #         print(content)
+        #files.save("w.jpg")
+        #filename = files.filename
+        #files.save(filename)
+
         import pdb
         pdb.set_trace()
         for file in files:
@@ -163,3 +177,17 @@ def register():
         elif result == "duplicate":
             flash("Email {} is already registered!".format(email) )
     return render_template("register.html", form=form)
+@app.route("/test", methods=["GET", "POST", "PUT"])
+def test():
+    form = request.form
+    if request.method == "POST":
+        for upload in request.files.getlist("file"):
+        #file = request.files["file"]
+            print(upload)
+        #filename = file.filename
+        #with open(filename, "wb") as f:
+        #    f.write(file.read())
+        #s3 = boto3.resource("s3")
+        #result = s3.Bucket("testuboston").put_object(Key=filename, Body=file.read(),  ACL="public-read", ContentType="image")
+
+    return render_template("test.html", form=form)
