@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <form  action="" method="post" role="form" enctype = "multipart/form-data">
+    {{ form.csrf }}
+    <div class="form-group">
+      <strong>Car Type:</strong><br>
+    <select name="car_type">
+        <option value="rental_car">Rental Car</option>
+        <option value="used_car">Used Car</option>
+    </select><p>
+
+    <strong>made year:</strong><br>
+    <select name="made_year">
+        <option value="2016">2016</option>
+        <option value="2009">2009</option>
+    </select><p>
+
+    <strong>Price</strong><br>
+    <input type="text" size="20" name="price"><p>
+
+    <strong>KBB price</strong><br>
+    <input type="text" size="20" name="kbb_price"><p>
+
+    <strong>Name</strong><br>
+    <input type="text" size="20" name="name"><p>
+
+    <strong>Millage</strong><br>
+    <input type="text" size="20" name="millage"><p>
+
+
+    <strong>Brand:</strong><br>
+    <select name="brand">
+        <option value="Benz">Benz</option>
+        <option value="BMW">BMW</option>
+    </select>
+
+        <strong>Manual/Auto:</strong><br>
+    <select name="manual_auto">
+        <option value="manual">Manual</option>
+        <option value="auto">Auto</option>
+    </select><p>
+
+
+    <strong>Fuel Type:</strong><br>
+    <select name="fuel_type">
+        <option value="93">93</option>
+        <option value="89">89</option>
+    </select><p>
+
+    <strong>MPG Local</strong><br>
+    <input type="text" size="20" name="mpg_local" ><p>
+
+    <strong>MPG Highway</strong><br>
+    <input type="text" size="20" name="mpg_highway" ><p>
+
+    <strong>Interior Color</strong><br>
+    <select name="interior_color">
+        <option value="Black">Black</option>
+        <option value="White">White</option>
+    </select><p>
+
+    <strong>Outside Color</strong><br>
+    <select name="outside_color">
+        <option value="Black">Black</option>
+        <option value="White">White</option>
+    </select><p>
+
+  <strong>Descriptions:</strong><br>
+    <textarea rows="4" cols="40" name="description">enter descriptions.</textarea><p>
+    <strong>Files:</strong><br>
+    <input id="file-picker" type="file" name="file" accept="image/*" multiple><p>
+
+    <input type="submit" value="Add Car" id="upload-button">
+
+    </div>
+  </form>
+<div>
+{% for car in data %}
+          <label>ID: {{car.id}}</label>
+          <label> Car Type: {{car.car_type}}</label>
+          <label> Made Year: {{car.made_year}}</label>
+          <label> Name: {{car.name}}</label>
+          <label> Brand: {{car.brand}}</label>
+          <label> MPG Local: {{car.mpg_local}}</label>
+          <label> MPG Highway: {{car.mpg_highway}}</label>
+          <label> Interior Color: {{car.interior_color}}</label>
+          <label> Outside Color: {{car.outside_color}}</label>
+          <label> Price: {{car.price}}</label>
+          <label> KBB Price: {{car.kbb_price}}</label>
+          <label> Millage: {{car.millage}}</label>
+          <label> Manual/Auto: {{car.manual_auto}}</label>
+          <label> Fuel Type: {{car.fuel_type}}</label>
+          <label> Description: {{car.description}}</label>
+          {% for image in car.images%}
+              <label>image{{image}}</label>
+          {% endfor%}
+    <p>
+      {% endfor %}
+</div>
+{% endblock %}

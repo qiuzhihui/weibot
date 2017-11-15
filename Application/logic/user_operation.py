@@ -5,9 +5,27 @@ from .import objects
 from .import utils
 
 
+def is_admin(db, data):
+    """
+    verify admin
+    :param db: type object
+    :param data: type dict
+    :return: bool
+    """
+    if not isinstance(data, dict):
+        data = json.loads(data)
+    email = data["email"]
+    password = data["password"]
+    user_data = get_user_data(db=db, email=email)
+    print(user_data)
+    if user_data and email == user_data["email"] and password == user_data["password"] and user_data.get("manage") == "diao":
+        return True
+    return False
+
+
 def create_new_user(db, data):
     """
-
+    check if user exist then create new one
     :param db: type object
     :param data: type dict
     :return: str
@@ -31,16 +49,17 @@ def verify_login(db, data):
     verify user log in success
     :param db: type object
     :param data: type dict
-    :return: str
+    :return: bool
     """
     if not isinstance(data, dict):
         data = json.loads(data)
     email = data["email"]
     password = data["password"]
     user_data = get_user_data(db=db, email=email)
-    if email == user_data["email"] and password == user_data["password"]:
-        return "success"
-    return "fail"
+    print(user_data)
+    if user_data and email == user_data["email"] and password == user_data["password"]:
+        return True
+    return False
 
 
 def retrieve_password(db, data):
@@ -58,6 +77,7 @@ def retrieve_password(db, data):
         password = user_data["password"]
         utils.send_email(to_email=email, subject="Retrieve password.", content="Your password is {}".format(password))
     return "success"
+
 
 def get_user_data(db, email):
     """

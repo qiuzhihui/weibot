@@ -4,6 +4,8 @@ test file
 import json
 import argparse
 import requests
+import boto3
+import botocore
 
 def test_car_service(port=5000, machine="localhost", car_type="used_car"):
     url = "http://{machine}:{port}/car".format(machine=machine, port=port)
@@ -26,11 +28,10 @@ def test_car_service(port=5000, machine="localhost", car_type="used_car"):
 def test_user_service(port=5000, machine="localhost", email="zhihui.qiu.tufts@gmail.com"):
     url = "http://{machine}:{port}/user".format(machine=machine, port=port)
 
-
     # test create user
-    data = {"username": "winstonchi", "email": "winstonchilw@gmail.com",
+    data = {"username": "winstonchi", "email": "hyperbolechi@gmail.com",
             "last_name": "chi", "first_name": "winston", "phone_number": "8572598366",
-            "password": "winstonchi", "register_date": "10/29/2017"}
+            "password": "winstonchi", "register_date": "10/29/2017", "manage": "admin"}
     data = json.dumps(data)
     response = requests.post(url=url, params={"create_user": data})
     if response.status_code == requests.codes.ok:
@@ -58,7 +59,6 @@ def test_user_service(port=5000, machine="localhost", email="zhihui.qiu.tufts@gm
         print("Reset success!!")
     else:
         print("!!! reset failed !!!")
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="test argparser")

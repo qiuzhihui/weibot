@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>Register</h2>
+<form action="{{ url_for('register') }}" method=post>
+    <dl>
+
+    <dt>User Name: <dd><input type=text name=username>
+
+    <dt>Password: <dd><input type=text name=password>
+
+    <dt>Email: <dd><input type=text name=email>
+
+    <dt>Last Name: <dd><input type=text name=last_name>
+
+    <dt>First Name: <dd><input type=text name=first_name>
+
+    <dt>Phone Number: <dd><input type=text name=phone_number>
+
+    <dd><input type=submit value="Create Account">
+</dl>
+</form>
+{% endblock %}
