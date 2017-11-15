@@ -16,3 +16,4 @@
 - brew services start mysql
 - mysql.server start
 - pip install mysqlclient
+- pip install -r requirements.txt 
