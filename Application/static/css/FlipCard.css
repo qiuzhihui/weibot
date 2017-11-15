@@ -28,20 +28,20 @@
 
 
 .Axles .ReactFlipCard__Front {
-  background-image: url("../../static/img/wheel.jpg")
+  background-image: url("https://s3.us-east-2.amazonaws.com/ubostonautoschool/CarFixPage/wheel.jpg")
 }
 .Batteries .ReactFlipCard__Front {
-  background-image: url("../../static/img/battery.jpg")
+  background-image: url("https://s3.us-east-2.amazonaws.com/ubostonautoschool/CarFixPage/battery.jpg")
 }
 .Brake .ReactFlipCard__Front {
-  background-image: url("../../static/img/car-brakes.jpg")
+  background-image: url("https://s3.us-east-2.amazonaws.com/ubostonautoschool/CarFixPage/car-brakes.jpg")
 }
 .Diagnostics .ReactFlipCard__Front {
-  background-image: url("../../static/img/diagnostics.jpg")
+  background-image: url("https://s3.us-east-2.amazonaws.com/ubostonautoschool/CarFixPage/diagnostics.jpg")
 }
 .Autobody .ReactFlipCard__Front {
-  background-image: url("../../static/img/autobody.jpg")
+  background-image: url("https://s3.us-east-2.amazonaws.com/ubostonautoschool/CarFixPage/autobody.jpg")
 }
 .Maintenance .ReactFlipCard__Front {
-  background-image: url("../../static/img/maintenance.jpg")
+  background-image: url("https://s3.us-east-2.amazonaws.com/ubostonautoschool/CarFixPage/maintenance.jpg")
 }

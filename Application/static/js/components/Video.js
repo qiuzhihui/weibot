@@ -42,7 +42,7 @@ class Video extends React.Component {
         <VideoOverlay />
         <div style={VideoContainer}>
           <video autoPlay loop id="video-background" muted playsInline style={video}>
-           <source src="static/video/heroVideo.mp4" type="video/mp4" />
+           <source src="https://s3.us-east-2.amazonaws.com/ubostonautoschool/HeroVideo/heroVideo.mp4" type="video/mp4" />
         </video>
         </div>
       </div>

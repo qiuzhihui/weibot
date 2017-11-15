@@ -18,19 +18,19 @@ export class TestCarousel extends React.Component {
       <div ref="carouselRef" style={{clear:"both"}}>
         <Carousel activeIndex={this.props.offset.index} direction={this.props.offset.direction} onSelect={this.props.handleSelect}>
             <Carousel.Item>
-              <img width={2000} height={401} alt="900x500" src="static/img/carousel1.jpg"/>
+              <img width={2000} height={401} alt="900x500" src="https://s3.us-east-2.amazonaws.com/ubostonautoschool/CarFixPage/carousel1.jpg"/>
               <Carousel.Caption>
                 <h3>We specialized in auto repair</h3>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img width={2000} height={401} alt="900x500" src="static/img/carousel2.jpg"/>
+              <img width={2000} height={401} alt="900x500" src="https://s3.us-east-2.amazonaws.com/ubostonautoschool/CarFixPage/carousel2.jpg"/>
               <Carousel.Caption>
                 <h3>Master Wang has been engaged in auto repair since 1984.</h3>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img width={2000} height={401} alt="900x500" src="static/img/carousel3.jpg"/>
+              <img width={2000} height={401} alt="900x500" src="https://s3.us-east-2.amazonaws.com/ubostonautoschool/CarFixPage/carousel3.jpg"/>
               <Carousel.Caption>
                 <h3>Master Su has 21 years car repair experience.</h3>
               </Carousel.Caption>
