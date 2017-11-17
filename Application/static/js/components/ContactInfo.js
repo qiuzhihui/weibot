@@ -19,7 +19,8 @@ const tableStyle = {
 }
 
 const tableHeader = {
-  marginBottom: '22px'
+  marginBottom: '22px',
+  textAlign: 'center',
 }
 
 const trStyle = {
@@ -67,7 +68,7 @@ class ContactInfo extends React.Component {
     return (
       <div style={rightPaneStyle}>
           <div style={tableStyle}>
-              <h4 style={tableHeader}>CONTACT US (Prospect Auto)</h4>
+              <h4 style={tableHeader}>CONTACT US</h4>
               <table style={tableStyle}>
                 <tbody>
                   <tr style={trStyle}>
