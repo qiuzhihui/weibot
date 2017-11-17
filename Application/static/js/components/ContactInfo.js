@@ -6,7 +6,8 @@ const rightPaneStyle = {
   width: "100%",
   height: "100%",
   backgroundColor: "#222",
-  padding: "35px",
+  padding: "20px",
+  paddingTop: "15px",
 }
 
 const colStyle = {
@@ -35,9 +36,10 @@ const tdStyleLeft = {
 const tdStyleRight = {
   verticalAlign: "top",
   minWidth: "75px",
-  fontWeight: '100',
+  fontWeight: '200',
   paddingLeft: '15px',
-  fontSize: '12px'
+  fontSize: '13px',
+  paddingTop: "1px",
 }
 
 const textStyle = {
@@ -82,7 +84,7 @@ class ContactInfo extends React.Component {
                   </tr>
                   <tr style={trStyle}>
                     <td style={tdStyleLeft}>Email: </td>
-                    <td style={tdStyleRight}>harvardAuto@gmail.com</td>
+                    <td style={tdStyleRight}>prospectauto95@gmail.com</td>
                   </tr>
                   <tr style={trStyle}>
                     <td style={tdStyleLeft}>Address: </td>
