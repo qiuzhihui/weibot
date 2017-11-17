@@ -64,7 +64,7 @@ const repairServices = [
 
 const listColumns = repairServices.map((service) => {
   return (
-    <Col xs={6} md={4} style={colStyle} key={ service.key }>
+    <Col xs={12} md={4} style={colStyle} key={ service.key }>
       <FlipCardGallery serviceName={service.name} description={service.description} serviceType = {service.serviceType}/>
     </Col> 
   )

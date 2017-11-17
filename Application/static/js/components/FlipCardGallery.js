@@ -18,6 +18,10 @@ const cardFront = {
   borderRadius: '10px',
 }
 
+const contentCenter = {
+  textAlign: 'center'
+}
+
 const imageStyle = {
   width: '100%',
   height: '100%'
@@ -58,12 +62,12 @@ export class FlipCardGallery extends React.Component {
 
   render() {
     return (
-      <div className={this.props.serviceType}>
+      <div className={this.props.serviceType} style={contentCenter}>
         {/* Default behavior is horizontal flip on hover, or focus */}
         <FlipCard> 
           {/* The first child is used as the front of the card */}
           <div style={cardFront}>
-            <div >{this.props.serviceName}</div>
+            <div>{this.props.serviceName}</div>
           </div>
           {/* The second child is used as the back of the card */}
           <div style={cardBack}>{this.props.description}</div>

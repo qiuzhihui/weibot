@@ -17,11 +17,12 @@ const style = {
 
 const brandLabel = {
   marginTop: '50px',
-  marginBottom: '50px'
+  marginBottom: '15px',
+  fontSize: '24px'
 }
 
 const section = {
-   marginTop: '20px',
+   marginTop: '20px'
 }
 
 const AppFooter = () => (
@@ -29,7 +30,7 @@ const AppFooter = () => (
     <Grid style={style}>
       <Row>
         <Col xs={12} md={12}>
-          <h3 style={brandLabel}> Harvard Auto Schools(三友车行)</h3>
+          <h3 style={brandLabel}> Harvard Auto Schools (三友车行)</h3>
         </Col>
       </Row>
       <Row>

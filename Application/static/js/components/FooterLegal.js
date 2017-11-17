@@ -3,6 +3,7 @@ import React from 'react'
 
 const para = {
   marginBottom: '50px',
+  paddingRight: '50px'
 }
 
 const FooterLegal = () => (

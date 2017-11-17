@@ -17,13 +17,27 @@ const tableStyle = {
   color: "rgb(230, 230, 230)",
 }
 
+const tableHeader = {
+  marginBottom: '22px'
+}
+
 const trStyle = {
   height: "30px",
 }
 
-const tdStyle = {
+const tdStyleLeft = {
   verticalAlign: "top",
   minWidth: "75px",
+  float: 'right',
+  textAlign: "right",
+}
+
+const tdStyleRight = {
+  verticalAlign: "top",
+  minWidth: "75px",
+  fontWeight: '100',
+  paddingLeft: '15px',
+  fontSize: '12px'
 }
 
 const textStyle = {
@@ -37,6 +51,7 @@ const imgStyle = {
 }
 
 const imgGrid = {
+  textAlign: 'center'
 }
 
 class ContactInfo extends React.Component {
@@ -50,28 +65,28 @@ class ContactInfo extends React.Component {
     return (
       <div style={rightPaneStyle}>
           <div style={tableStyle}>
-              <h4>CONTACT US (Prospect Auto)</h4>
+              <h4 style={tableHeader}>CONTACT US (Prospect Auto)</h4>
               <table style={tableStyle}>
                 <tbody>
                   <tr style={trStyle}>
-                    <td style={tdStyle}>Weekday </td>
-                    <td style={tdStyle}>8am-6pm Saturday 9am-3pm</td>
+                    <td style={tdStyleLeft}>Weekday </td>
+                    <td style={tdStyleRight}>8am-6pm Saturday 9am-3pm</td>
                   </tr>
                   <tr style={trStyle}>
-                    <td style={tdStyle}>Sunday </td>
-                    <td style={tdStyle}>Closed</td>
+                    <td style={tdStyleLeft}>Sunday </td>
+                    <td style={tdStyleRight}>Closed</td>
                   </tr>
                   <tr style={trStyle}>
-                    <td style={tdStyle}>Phone: </td>
-                    <td style={tdStyle}>617-354-2300</td>
+                    <td style={tdStyleLeft}>Phone: </td>
+                    <td style={tdStyleRight}>617-354-2300</td>
                   </tr>
                   <tr style={trStyle}>
-                    <td style={tdStyle}>Email: </td>
-                    <td style={tdStyle}>harvardAuto@gmail.com</td>
+                    <td style={tdStyleLeft}>Email: </td>
+                    <td style={tdStyleRight}>harvardAuto@gmail.com</td>
                   </tr>
                   <tr style={trStyle}>
-                    <td style={tdStyle}>Address: </td>
-                    <td style={tdStyle}>247 Prospect St. Cambridge, MA</td>
+                    <td style={tdStyleLeft}>Address: </td>
+                    <td style={tdStyleRight}>247 Prospect St. Cambridge, MA</td>
                   </tr>
                 </tbody>
               </table>
