@@ -42,7 +42,7 @@ export class VideoOverlay extends React.Component {
   render() {
     return (
       <div className='overlay' style={style}>
-        <h2>Harvard Auto Schools</h2>
+        <h2>Harvard Auto Schools(三友车行)</h2>
         <hr className="intro-divider" style={{display: 'block'}}/>
         <Button bsStyle="danger" onClick={this.scrollToRepair.bind(this)}>Know More</Button>
       </div>
