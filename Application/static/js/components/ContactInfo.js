@@ -85,7 +85,7 @@ class ContactInfo extends React.Component {
                   </tr>
                   <tr style={trStyle}>
                     <td style={tdStyleLeft}>Email: </td>
-                    <td style={tdStyleRight}>prospectauto95@gmail.com</td>
+                    <td style={tdStyleRight}>yyw2300@gmail.com</td>
                   </tr>
                   <tr style={trStyle}>
                     <td style={tdStyleLeft}>Address: </td>

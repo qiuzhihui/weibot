@@ -30,7 +30,7 @@ const AppFooter = () => (
     <Grid style={style}>
       <Row>
         <Col xs={12} md={12}>
-          <h3 style={brandLabel}> Harvard Auto Schools (三友车行)</h3>
+          <h3 style={brandLabel}> Prospect Auto Inc (三友车行)</h3>
         </Col>
       </Row>
       <Row>
