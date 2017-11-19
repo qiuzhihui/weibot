@@ -9,7 +9,7 @@ const para = {
 const FooterLegal = () => (
   <div>
     <p style={para}>
-      Harvard Auto Schools is bringing trust and simplicity to the used car market. Our goal is to turn what is universally regarded as a burdensome life event into a delightful experience.
+      Prospect auto inc is bringing trust and simplicity to the used car market. Our goal is to turn what is universally regarded as a burdensome life event into a delightful experience.
     </p>
     <ul className="list-inline">
        <li>
